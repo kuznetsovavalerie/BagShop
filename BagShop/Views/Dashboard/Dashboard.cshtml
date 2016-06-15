@@ -1,0 +1,131 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Панель управления</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <div>
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <ul class="nav navbar-nav">
+                    <li>Заказы</li>
+                </ul>
+            </div>
+        </nav>
+        <section class="container body-content">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Заказы
+                </div>
+
+                <div class="panel-body">
+                    <ul class="nav nav-pills">
+                        <li role="presentation">Необработанные</li>
+                        <li role="presentation">Ожидают пошива</li>
+                        <li role="presentation">В процессе пошива</li>
+                        <li role="presentation">Ожидают отправки</li>
+                        <li role="presentation">Отправленные</li>
+                        <li role="presentation">Полученные</li>
+                        <li role="presentation">Отмененные покупателем</li>
+                        <li role="presentation">Не забранные</li>
+                    </ul>
+                </div>
+
+                <table class="table">
+                    <tr>
+                        <th>
+                            ID заказа
+                        </th>
+                        <th>
+                            Время заказа
+                        </th>
+                        <th>
+                            Сумма (грн)
+                        </th>
+                        <th>
+                            Электронный адрес покупателя
+                        </th>
+                        <th>
+                            Телефон покупателя
+                        </th>
+                        <th>
+                            Статус заказа
+                        </th>
+                    </tr>
+                    <tr>
+                        <td colspan="6">
+                            Принял заказ: 
+                            Время принятия заказа: 
+                            Отправил заказ:
+                            Время отправки заказа: 
+                            Товары:
+                            <table class="table">
+                                <tr>
+                                    <th>
+                                        ID
+                                    </th>
+                                    <th>
+                                        Название
+                                    </th>
+                                    <th>
+                                        Цвет
+                                    </th>
+                                    <th>
+                                        Количество
+                                    </th>
+                                    <th>
+                                        Стоимость еденицы на момент покупки
+                                    </th>
+                                    <th>
+                                        Общая стоимость
+                                    </th>
+                                </tr>
+                            </table>
+                            Полученная предоплата:
+                            Изменить статус: 
+                            <select>
+                                <option>В процессе пошива</option>
+                                <option>Ожидат отправки</option>
+                                <option>Отправлен</option>
+                                <option>Получен</option>
+                                <option>Не забран</option>
+                                <option>Отменен покупателем</option>
+                            </select>
+                            <button class="btn btn-primary">Подтвердить</button>
+                            <button class="btn btn-primary">Подтвердить получение оплаты</button>
+                            <button class="btn btn-danger">Удалить</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <nav>
+                <ul class="pagination">
+                    <li>
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+    </div>
+</body>
+</html>
