@@ -42,6 +42,16 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BagShop.Common\BagShop.Common.csproj">
+      <Project>{05df4785-1a64-4661-9f73-9e747e35a10d}</Project>
+      <Name>BagShop.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BagShop.DAL\BagShop.DAL.csproj">
+      <Project>{0372301e-6c61-4c01-aec6-f2ef02d5b215}</Project>
+      <Name>BagShop.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
