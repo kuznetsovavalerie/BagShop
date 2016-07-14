@@ -41,10 +41,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Colour.cs" />
+    <Compile Include="Entities\Claim.cs" />
+    <Compile Include="Entities\ExternalLogin.cs" />
     <Compile Include="Entities\Order.cs" />
+    <Compile Include="Entities\Role.cs" />
     <Compile Include="Entities\ShoppingItem.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="Interfaces\IExternalLoginRepository.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Interfaces\IRoleRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
+    <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

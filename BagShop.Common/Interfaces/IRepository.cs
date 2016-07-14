@@ -1,18 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace BagShop.Common.Interfaces
 {
-    public interface IRepository<T> where T : class
+    public interface IRepository<TEntity> where TEntity : class
     {
-        IEnumerable<T> GetAll();
-        T Get(int id);
-        IEnumerable<T> Find(Func<T, Boolean> predicate);
-        void Create(T item);
-        void Update(T item);
-        void Delete(int id);
+        List<TEntity> GetAll();
+        Task<List<TEntity>> GetAllAsync();
+        Task<List<TEntity>> GetAllAsync(CancellationToken cancellationToken);
+
+        List<TEntity> PageAll(int skip, int take);
+        Task<List<TEntity>> PageAllAsync(int skip, int take);
+        Task<List<TEntity>> PageAllAsync(CancellationToken cancellationToken, int skip, int take);
+
+        TEntity FindById(object id);
+        Task<TEntity> FindByIdAsync(object id);
+        Task<TEntity> FindByIdAsync(CancellationToken cancellationToken, object id);
+
+        void Add(TEntity entity);
+        void Update(TEntity entity);
+        void Remove(TEntity entity);
     }
 }

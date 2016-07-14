@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace BagShop.DAL.Repositories
 {
-    public class OrderRepository : IRepository<Order>
+    public class OrderRepository
     {
         private BagShopContext context;
 

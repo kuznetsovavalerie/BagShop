@@ -8,6 +8,10 @@ namespace BagShop.Models
         [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
+
+        [Required]
+        [Display(Name = "UserName")]
+        public string UserName { get; set; }
     }
 
     public class ExternalLoginListViewModel
@@ -52,6 +56,10 @@ namespace BagShop.Models
         [Display(Name = "Email")]
         [EmailAddress]
         public string Email { get; set; }
+        
+        [Display(Name = "UserName")]
+        [EmailAddress]
+        public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
@@ -68,6 +76,10 @@ namespace BagShop.Models
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
+        
+        [EmailAddress]
+        [Display(Name = "UserName")]
+        public string UserName { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
@@ -108,5 +120,11 @@ namespace BagShop.Models
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
+    }
+
+    public class ManageUserViewModel
+    {
+        public string NewPassword { get; internal set; }
+        public string OldPassword { get; internal set; }
     }
 }

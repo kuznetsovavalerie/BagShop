@@ -2,53 +2,77 @@
 using BagShop.Common.Interfaces;
 using BagShop.DAL.Repositories;
 using System;
+using System.Threading.Tasks;
 
 namespace BagShop.DAL
 {
-    class UnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
-        private BagShopContext context;
-        private OrderRepository orderRepository;
+        #region Fields
+        private BagShopContext _context;
+        private Repository<Order> _orderRepository;
+        private IExternalLoginRepository _externalLoginRepository;
+        private IRoleRepository _roleRepository;
+        private IUserRepository _userRepository;
+        #endregion
 
         public UnitOfWork(string connectionString)
         {
-            context = new BagShopContext(connectionString);
+            _context = new BagShopContext(connectionString);
         }
 
-        public IRepository<Order> Orders
+        #region IUnitOfWork Members
+
+        public IRepository<Order> OrderRepository
         {
             get
             {
-                if (orderRepository == null)
-                    orderRepository = new OrderRepository(context);
+                if (_orderRepository == null)
+                    _orderRepository = new Repository<Order>(_context);
 
-                return orderRepository;
+                return _orderRepository;
             }
         }
 
-        public void Save()
+        public IExternalLoginRepository ExternalLoginRepository
         {
-            context.SaveChanges();
+            get { return _externalLoginRepository ?? (_externalLoginRepository = new ExternalLoginRepository(_context)); }
         }
 
-        private bool disposed = false;
-
-        public virtual void Dispose(bool disposing)
+        public IRoleRepository RoleRepository
         {
-            if (!this.disposed)
-            {
-                if (disposing)
-                {
-                    context.Dispose();
-                }
-                this.disposed = true;
-            }
+            get { return _roleRepository ?? (_roleRepository = new RoleRepository(_context)); }
         }
 
+        public IUserRepository UserRepository
+        {
+            get { return _userRepository ?? (_userRepository = new UserRepository(_context)); }
+        }
+
+        public int SaveChanges()
+        {
+            return _context.SaveChanges();
+        }
+
+        public Task<int> SaveChangesAsync()
+        {
+            return _context.SaveChangesAsync();
+        }
+
+        public Task<int> SaveChangesAsync(System.Threading.CancellationToken cancellationToken)
+        {
+            return _context.SaveChangesAsync(cancellationToken);
+        }
+        #endregion
+
+        #region IDisposable Members
         public void Dispose()
         {
-            Dispose(true);
-            GC.SuppressFinalize(this);
+            _externalLoginRepository = null;
+            _roleRepository = null;
+            _userRepository = null;
+            _context.Dispose();
         }
+        #endregion
     }
 }

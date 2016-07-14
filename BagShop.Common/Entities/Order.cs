@@ -8,5 +8,6 @@ namespace BagShop.Common.Entities
 {
     public class Order
     {
+        public int ID { get; set; }
     }
 }
