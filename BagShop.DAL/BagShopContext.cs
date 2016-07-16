@@ -13,6 +13,8 @@ namespace BagShop.DAL
         internal IDbSet<ExternalLogin> Logins { get; set; }
 
         public DbSet<Order> Orders { get; set; }
+        public DbSet<ShoppingItem> Items { get; set; }
+        public DbSet<BlogPost> BlogPosts { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

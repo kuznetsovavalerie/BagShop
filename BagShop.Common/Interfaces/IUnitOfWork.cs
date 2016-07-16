@@ -8,6 +8,7 @@ namespace BagShop.Common.Interfaces
     public interface IUnitOfWork : IDisposable
     {
         IRepository<Order> OrderRepository { get; }
+        IRepository<BlogPost> BlogPostRepository { get; }
         IExternalLoginRepository ExternalLoginRepository { get; }
         IRoleRepository RoleRepository { get; }
         IUserRepository UserRepository { get; }

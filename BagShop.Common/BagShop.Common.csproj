@@ -41,18 +41,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Colour.cs" />
+    <Compile Include="Entities\BlogPost.cs" />
     <Compile Include="Entities\Claim.cs" />
     <Compile Include="Entities\ExternalLogin.cs" />
     <Compile Include="Entities\Order.cs" />
     <Compile Include="Entities\Role.cs" />
     <Compile Include="Entities\ShoppingItem.cs" />
     <Compile Include="Entities\User.cs" />
-    <Compile Include="Interfaces\IExternalLoginRepository.cs" />
-    <Compile Include="Interfaces\IRepository.cs" />
-    <Compile Include="Interfaces\IRoleRepository.cs" />
+    <Compile Include="Interfaces\IBlogService.cs" />
+    <Compile Include="Interfaces\Repositories\IExternalLoginRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IRoleRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
-    <Compile Include="Interfaces\IUserRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interfaces\Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

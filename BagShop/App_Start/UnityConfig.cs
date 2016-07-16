@@ -1,3 +1,4 @@
+using BagShop.BLL.Services;
 using BagShop.Common.Interfaces;
 using BagShop.DAL;
 using BagShop.Identity;
@@ -15,9 +16,10 @@ namespace BagShop
         {
             var container = new UnityContainer();
 
-            container.RegisterType<IUnitOfWork, UnitOfWork>(new HierarchicalLifetimeManager(), new InjectionConstructor("Mvc5IdentityExample"));
+            container.RegisterType<IUnitOfWork, UnitOfWork>(new HierarchicalLifetimeManager(), new InjectionConstructor("BagShop"));
             container.RegisterType<IUserStore<IdentityUser, Guid>, UserStore>(new TransientLifetimeManager());
             container.RegisterType<RoleStore>(new TransientLifetimeManager());
+            container.RegisterType<IBlogService, BlogService>();
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }

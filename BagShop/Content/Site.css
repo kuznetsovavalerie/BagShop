@@ -1,24 +1,40 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿
+/* BASE */
+.white-color * {
+    color: #fff;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+.navbar {
+    text-transform:uppercase;
+    font-family: Arial;
+}
+/* END BASE */
+
+/* HOME PAGE */
+.banner {
+    background-image: url('img/LRG-X-JanSport-Lookbook-Shot-by-Street-Dreams-Magazine-3.jpg');
+    height: 80%;
+    width: 100%;
+    position:absolute;
+    z-index: 0;
+    top: 0px;
+    right: 0px;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+.banner-info {
+    height: 80%;
+    padding-top: 20%;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+.btn-buy {
+    background-color: transparent;
+    border-radius: 50px;
+    padding: 18px 22px;
+    border: 2px solid #fff;
+    text-transform: uppercase;
 }
+
+.btn-buy:hover {
+    background-color: #fff;
+}
+/* END HOME PAGE */
