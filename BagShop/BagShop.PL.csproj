@@ -244,6 +244,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\angular-breadcrumb.js" />
+    <Content Include="Scripts\angular-breadcrumb.min.js" />
+    <Content Include="Scripts\lib\angular-ui-router.js" />
+    <Content Include="Scripts\lib\angular-ui-router.min.js" />
     <Content Include="Scripts\app\templates\Catalog\_ProductPreview.html" />
     <Content Include="Scripts\app\templates\ShoppingCart\_ShoppingCart.html" />
     <Content Include="Scripts\app.js" />
