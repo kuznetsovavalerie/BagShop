@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Colour.cs" />
+    <Compile Include="Entities\Colour.cs" />
     <Compile Include="Entities\BlogPost.cs" />
     <Compile Include="Entities\Claim.cs" />
     <Compile Include="Entities\ExternalLogin.cs" />
@@ -48,7 +49,8 @@
     <Compile Include="Entities\Role.cs" />
     <Compile Include="Entities\ShoppingItem.cs" />
     <Compile Include="Entities\User.cs" />
-    <Compile Include="Interfaces\IBlogService.cs" />
+    <Compile Include="Interfaces\IProductService.cs" />
+    <Compile Include="Interfaces\Services\IBlogService.cs" />
     <Compile Include="Interfaces\Repositories\IExternalLoginRepository.cs" />
     <Compile Include="Interfaces\Repositories\IRepository.cs" />
     <Compile Include="Interfaces\Repositories\IRoleRepository.cs" />
@@ -56,9 +58,7 @@
     <Compile Include="Interfaces\Repositories\IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interfaces\Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

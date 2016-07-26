@@ -20,6 +20,7 @@ namespace BagShop
             container.RegisterType<IUserStore<IdentityUser, Guid>, UserStore>(new TransientLifetimeManager());
             container.RegisterType<RoleStore>(new TransientLifetimeManager());
             container.RegisterType<IBlogService, BlogService>();
+            container.RegisterType<IProductService, ProductService>();
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }

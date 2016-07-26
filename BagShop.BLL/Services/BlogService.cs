@@ -5,14 +5,10 @@ using System.Linq;
 
 namespace BagShop.BLL.Services
 {
-    public class BlogService : IBlogService
+    public class BlogService : BaseService, IBlogService
     {
-        private IUnitOfWork unitOfWork;
-
-        public BlogService(IUnitOfWork unitOfWork)
-        {
-            this.unitOfWork = unitOfWork;
-        }
+        public BlogService(IUnitOfWork unitOfWork) : base(unitOfWork)
+        { }
 
         public IEnumerable<BlogPost> GetAllPosts()
         {
@@ -27,11 +23,6 @@ namespace BagShop.BLL.Services
         public void CreatePost(BlogPost post)
         {
             unitOfWork.BlogPostRepository.Add(post);
-        }
-
-        public void Dispose()
-        {
-            this.unitOfWork.Dispose();
         }
     }
 }

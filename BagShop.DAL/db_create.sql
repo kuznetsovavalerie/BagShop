@@ -161,3 +161,30 @@ CREATE TABLE [dbo].[BlogPosts] (
     PRIMARY KEY CLUSTERED ([ID] ASC)
 )
 
+-- 26.07.16
+
+CREATE TABLE [dbo].[ShoppingItems] (
+    [ID]          INT             IDENTITY(1, 1),
+    [Title]       NVARCHAR(64)    NOT NULL,
+    [Description] NVARCHAR(1024),
+    [Composition] NVARCHAR(1024),
+    [Care]		  NVARCHAR(1024),
+    [Price]		  FLOAT NOT NULL,
+    [TitleImage]  NVARCHAR (256)  NOT NULL,
+    PRIMARY KEY CLUSTERED ([ID] ASC)
+)
+
+CREATE TABLE [dbo].[Colours] (
+    [ID]				INT	IDENTITY(1, 1),
+	[ShoppingItemId]	INT NOT NULL,
+    [Name]				NVARCHAR(64)    NOT NULL,
+    [PreviewImage]		NVARCHAR(1024) NOT NULL,
+	FOREIGN KEY ([ShoppingItemId]) REFERENCES [ShoppingItems] ([ID]),
+    PRIMARY KEY CLUSTERED ([ID] ASC)
+)
+
+CREATE TABLE [dbo].[ColourImages] (
+    [ColourID]	INT NOT NULL,
+	[Url]		NVARCHAR(256) NOT NULL,
+	FOREIGN KEY ([ColourID]) REFERENCES [Colours] ([ID])
+)

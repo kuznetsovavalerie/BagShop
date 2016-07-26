@@ -15,7 +15,7 @@
     var shopController = function ($scope) {
         //$scope.
         $scope.init = function (data) {
-
+            console.log(data);
         }
 
 

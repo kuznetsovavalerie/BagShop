@@ -14,6 +14,7 @@ namespace BagShop.DAL
 
         public DbSet<Order> Orders { get; set; }
         public DbSet<ShoppingItem> Items { get; set; }
+        public DbSet<Colour> Colours { get; set; }
         public DbSet<BlogPost> BlogPosts { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -22,6 +23,14 @@ namespace BagShop.DAL
             modelBuilder.Configurations.Add(new RoleConfiguration());
             modelBuilder.Configurations.Add(new ExternalLoginConfiguration());
             modelBuilder.Configurations.Add(new ClaimConfiguration());
+
+            modelBuilder.Entity<ShoppingItem>().HasMany(si => si.Colours).WithRequired(c => c.ShoppingItem).HasForeignKey<int>(c => c.ShoppingItemId);
+
+            modelBuilder.Entity<Colour>()
+                .ToTable("Colours")
+                .HasRequired(c => c.ShoppingItem)
+                .WithMany(si => si.Colours)
+                .HasForeignKey<int>(c => c.ShoppingItemId);
         }
     }
 }

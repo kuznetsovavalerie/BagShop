@@ -1,8 +1,15 @@
-﻿@{
+﻿@model IEnumerable<BagShop.Models.ProductPreviewModel>
+@{
     ViewBag.Title = "Hedera Shop";
 }
 
-<div class="banner">
+@foreach(var product in Model)
+{
+    <a>@product.Title</a>
+    <a>@product.Price</a>
+}
+
+@*<div class="banner">
 
 </div>
 
@@ -13,4 +20,4 @@
         <a href="#" class="btn btn-lg btn-buy">Купить</a>
     </div>
     <div class="col-lg-4"></div>
-</div>
+</div>*@

@@ -1,4 +1,7 @@
-﻿using BagShop.DAL;
+﻿using BagShop.App_Code;
+using BagShop.Common.Interfaces;
+using BagShop.DAL;
+using BagShop.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +12,19 @@ namespace BagShop.Controllers
 {
     public class HomeController : Controller
     {
+        private IProductService productService;
+
+        public HomeController(IProductService productService)
+        {
+            this.productService = productService;
+        }
+
         public ActionResult Index()
         {
-            return View();
+            var products = productService.GetAllItems()
+                .Select(p => AutoMapperConfiguration.Mapper.Map<ProductPreviewModel>(p));
+
+            return View(products);
         }
 
         public ActionResult About()

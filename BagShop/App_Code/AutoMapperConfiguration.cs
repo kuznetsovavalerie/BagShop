@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BagShop.Common.Entities;
 using BagShop.Models;
+using System.Linq;
 
 namespace BagShop.App_Code
 {
@@ -21,6 +22,13 @@ namespace BagShop.App_Code
             var enterpriseConfig = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<BlogPost, BlogPostPreviewModel>();
+                cfg.CreateMap<ShoppingItem, ProductPreviewModel>()
+                .ForMember(
+                    dest => dest.UrlColours, 
+                    opt => opt.MapFrom(src => src.Colours.Select(c => c.PreviewImage))
+                    );
+
+
             });
 
             _mapper = enterpriseConfig.CreateMapper();

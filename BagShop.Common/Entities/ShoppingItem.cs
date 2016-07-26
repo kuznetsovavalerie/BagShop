@@ -10,12 +10,14 @@ namespace BagShop.Common.Entities
 
         public string Description { get; set; }
 
-        public Dictionary<string, int> Composition { get; set; }
+        public string Composition { get; set; }
 
         public string Care { get; set; }
 
         public double Price { get; set; }
 
-        public IEnumerable<Colour> Colours { get; set; }
+        public string TitleImage { get; set; }
+
+        public ICollection<Colour> Colours { get; set; }
     }
 }
