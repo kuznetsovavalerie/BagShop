@@ -1,4 +1,6 @@
-﻿namespace BagShop.Common.Entities
+﻿using System;
+
+namespace BagShop.Common.Entities
 {
     public class BlogPost
     {
@@ -11,5 +13,7 @@
         public string Description { get; set; }
 
         public string Text { get; set; }
+
+        public DateTime PostTime { get; set; }
     }
 }

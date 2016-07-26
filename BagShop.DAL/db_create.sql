@@ -147,3 +147,17 @@ ON DELETE CASCADE
 GO
 ALTER TABLE [dbo].[UserRole] CHECK CONSTRAINT [FK_dbo.AspNetUserRoles_dbo.AspNetUsers_UserId]
 GO
+
+
+-- 23.07.16
+
+CREATE TABLE [dbo].[BlogPosts] (
+    [ID]          INT             IDENTITY(1, 1),
+    [Title]       NVARCHAR(64)    NOT NULL,
+    [Description] NVARCHAR(1024)  NOT NULL,
+    [Text]        NVARCHAR(MAX) NOT NULL,
+    [TitleImage]  NVARCHAR (256)  NOT NULL,
+    [PostTime]    DATETIME        DEFAULT (getdate()) NOT NULL,
+    PRIMARY KEY CLUSTERED ([ID] ASC)
+)
+
