@@ -239,6 +239,11 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\app.js" />
+    <Content Include="app\dashboard\config.js" />
+    <Content Include="app\dashboard\controllers\dashboardController.js" />
+    <Content Include="app\dashboard\controllers\productController.js" />
+    <Content Include="app\dashboard\templates\products.html" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\img\LRG-X-JanSport-Lookbook-Shot-by-Street-Dreams-Magazine-3.jpg" />
@@ -246,6 +251,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Html\Dashboard.html" />
     <Content Include="Scripts\angular-breadcrumb.js" />
     <Content Include="Scripts\angular-breadcrumb.min.js" />
     <Content Include="Scripts\lib\angular-ui-router.js" />
@@ -316,8 +322,8 @@
     <Content Include="Views\Blog\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\shopping\" />
     <Folder Include="App_Data\" />
-    <Folder Include="Html\" />
     <Folder Include="Scripts\home\" />
     <Folder Include="Scripts\shopping\" />
     <Folder Include="Views\Cart\" />
