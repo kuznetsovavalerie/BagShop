@@ -60,10 +60,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BagShopContext.cs" />
+    <Compile Include="Configuration\BagShopContextInitializer.cs" />
     <Compile Include="Configuration\ClaimConfiguration.cs" />
     <Compile Include="Configuration\ExternalLoginConfiguration.cs" />
     <Compile Include="Configuration\RoleConfiguration.cs" />
-    <Compile Include="Configuration\ShoppingItemConfiguration.cs" />
     <Compile Include="Configuration\UserConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ExternalLoginRepository.cs" />

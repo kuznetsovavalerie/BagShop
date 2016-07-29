@@ -24,13 +24,9 @@ namespace BagShop.DAL
             modelBuilder.Configurations.Add(new ExternalLoginConfiguration());
             modelBuilder.Configurations.Add(new ClaimConfiguration());
 
-            modelBuilder.Entity<ShoppingItem>().HasMany(si => si.Colours).WithRequired(c => c.ShoppingItem).HasForeignKey<int>(c => c.ShoppingItemId);
+            Database.SetInitializer(new BagShopContextInitializer());
 
-            modelBuilder.Entity<Colour>()
-                .ToTable("Colours")
-                .HasRequired(c => c.ShoppingItem)
-                .WithMany(si => si.Colours)
-                .HasForeignKey<int>(c => c.ShoppingItemId);
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
