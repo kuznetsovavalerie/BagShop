@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace BagShop.Common.Entities
+namespace BagShop.Models
 {
-    public class Colour
+    public class ColourViewModel
     {
         public int ID { get; set; }
 
@@ -10,6 +10,6 @@ namespace BagShop.Common.Entities
 
         public string PreviewImage { get; set; }
 
-        public virtual ICollection<string> Images { get; set; }
+        public IEnumerable<string> Images { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿(function () {
+﻿
     'use strict';
 
     angular
@@ -7,19 +7,24 @@
 
     productController.$inject = [
                             '$scope',
-                            '$attrs',
-                            '$q',
+                            '$http',
                             '$controller',
                             '$state'];
 
-    function productController($scope,
-                            $attrs,
-                            $q,
+    function productController(
+                            $scope,
+                            $http,
                             $controller,
                             $state) {
 
         $scope.init = function () {
+            $http({
+                method: 'get',
+                url: '../api/Shopping/GetProducts'
+            }).then(function (data) { console.log(data); });
 
+            $scope.products;
         }
+
+        $scope.init();
     }
-})();

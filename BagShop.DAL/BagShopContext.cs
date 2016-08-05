@@ -14,7 +14,6 @@ namespace BagShop.DAL
 
         public DbSet<Order> Orders { get; set; }
         public DbSet<ShoppingItem> Items { get; set; }
-        public DbSet<Colour> Colours { get; set; }
         public DbSet<BlogPost> BlogPosts { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

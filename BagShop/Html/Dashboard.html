@@ -3,12 +3,14 @@
 <head>
     <title></title>
     <meta charset="utf-8" />
-    <script type="text/javascript" src="../Scripts/lib/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" src="../Scripts/lib/angular.min.js"></script>
+    <script type="text/javascript" src="../Scripts/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="../Scripts/angular.min.js"></script>
     <script type="text/javascript" src="../Scripts/lib/angular-ui-router.min.js"></script>
     <script type="text/javascript" src="../Scripts/lib/bootstrap.min.js"></script>
     <script type="text/javascript" src="../app/app.js"></script>
+    <script type="text/javascript" src="../app/dashboard/controllers/productController.js"></script>
     <script type="text/javascript" src="../app/dashboard/controllers/dashboardController.js"></script>
+    <script type="text/javascript" src="../app/dashboard/config.js"></script>
     <link rel="stylesheet" href="../Content/bootstrap.min.css" />
     <link rel="stylesheet" href="../Content/Site.css" />
 </head>
@@ -26,13 +28,15 @@
             </ul>
         </div>
     </nav>
-    {{ state }}
 
-    <div ui-view="productsViewer"></div>
+    <div class="container">
+        <div class="row">
+            <div ui-view="viewProductList"></div>
+        </div>
+    </div>
 
     <script type="text/javascript">
-        $(document).ready(function () {
-            (function () {
+        /*$(document).ready(function () {
                 'use strict';
 
                 var whenConfig = ['$urlRouterProvider', function ($urlRouterProvider) {
@@ -76,6 +80,16 @@
                                 //    parent: 'index'
                                 //}
                             })
+                   .run(['$state', '$rootScope', function ($state, $rootScope) {
+
+                       //$rootScope.isActive = function (stateName) {
+                       //    return $state.includes(stateName);
+                       //};
+
+                       $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+                           console.log(toState, fromState);
+                       });
+                   }]);
                             //.state('master.trim', {
                             //    url: "/:trim",
                             //    views: {
@@ -111,9 +125,8 @@
                             //    }
                             //})
                         })
-                .run(['$state', '$rootScope']);
-            })();
-        })
+                //.run(['$state', '$rootScope']);
+        })*/
     </script>
 </body>
 </html>

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using BagShop.App_Code;
+using BagShop.Common.Interfaces;
+using BagShop.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,16 +12,31 @@ namespace BagShop.Controllers
 {
     public class ShoppingController : ApiController
     {
-        // GET: api/Shopping
-        public IEnumerable<string> Get()
+        private IProductService productService;
+
+        public ShoppingController(IProductService productService)
         {
-            return new string[] { "value1", "value2" };
+            this.productService = productService;
         }
 
-        // GET: api/Shopping/5
-        public string Get(int id)
+        //// GET: api/Shopping
+        //public IEnumerable<string> Get()
+        //{
+        //    return new string[] { "value1", "value2" };
+        //}
+
+        //// GET: api/Shopping/5
+        //public string Get(int id)
+        //{
+        //    return "value";
+        //}
+
+        public IEnumerable<ProductViewModel> GetProducts()
         {
-            return "value";
+            var result = productService.GetAllItems();
+            var products = result.Select(p => AutoMapperConfiguration.Mapper.Map<ProductViewModel>(p));
+
+            return products;
         }
 
         // POST: api/Shopping

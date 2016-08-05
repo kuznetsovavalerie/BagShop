@@ -28,6 +28,15 @@ namespace BagShop.App_Code
                     opt => opt.MapFrom(src => src.Colours.Select(c => c.PreviewImage))
                     );
 
+                cfg.CreateMap<Colour, ColourViewModel>().ForMember(
+                    dest => dest.Images,
+                    opt => opt.MapFrom(src => ImageHelper.GetProductImageUrls(src.ID))
+                    );
+                cfg.CreateMap<ShoppingItem, ProductViewModel>()
+                .ForMember(
+                    dest => dest.Colours,
+                    opt => opt.MapFrom(si => si.Colours.Select(c => Mapper.Map<Colour, ColourViewModel>(c)))
+                    );
 
             });
 
