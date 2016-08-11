@@ -250,6 +250,7 @@
     <Content Include="app\dashboard\config.js" />
     <Content Include="app\dashboard\controllers\dashboardController.js" />
     <Content Include="app\dashboard\controllers\productController.js" />
+    <Content Include="app\dashboard\templates\productDetails.html" />
     <Content Include="app\dashboard\templates\products.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -282,6 +283,8 @@
     <Content Include="Scripts\jquery-3.1.0.min.js" />
     <Content Include="Scripts\jquery-3.1.0.slim.js" />
     <Content Include="Scripts\jquery-3.1.0.slim.min.js" />
+    <Content Include="Scripts\lib\jquery.dd.min.js" />
+    <Content Include="Scripts\lib\angular-file-model.js" />
     <Content Include="Scripts\lib\angular-ui-router.js" />
     <Content Include="Scripts\lib\angular-ui-router.min.js" />
     <Content Include="Scripts\app\templates\Catalog\_ProductPreview.html" />
@@ -313,6 +316,7 @@
     <Content Include="Scripts\lib\respond.min.js" />
     <Content Include="Scripts\lib\_references.js" />
     <Content Include="Scripts\app\controllers\productController.js" />
+    <Content Include="Scripts\site.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

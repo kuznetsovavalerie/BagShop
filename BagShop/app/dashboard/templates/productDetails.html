@@ -1,0 +1,65 @@
+﻿<div class="row">
+    <div class="col-lg-6">
+        <label>Название: </label>
+        <textarea type="text" ng-model="product.Name"></textarea>
+    </div>
+    <div class="col-lg-6">
+        <label>Описание: </label>
+        <textarea type="text" ng-model="product.Description"></textarea>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-6">
+        <label>Состав: </label>
+        <textarea type="text" ng-model="product.Composition"></textarea>
+    </div>
+    <div class="col-lg-6">
+        <label>Уход: </label>
+        <textarea type="text" ng-model="product.Care"></textarea>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-6">
+        <label>Цена: </label>
+        <input type="number" ng-model="product.Price" />
+    </div>
+    <div class="col-lg-6">
+        <label>Обложка: </label>
+        <input type="image" file-model="TitleImageFile" />
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Фотографии
+    </div>
+    <div class="panel-body">
+        <div class="row" ng-repeat="colour in product.Colours">
+            <div class="col-lg-3">
+                <label>Цвет: </label>
+                <select class="msdd" ng-model="colour.ColourPreview">
+                    <option ng-repeat="preview in ColourPreviews" data-image="preview.Url" value="preview">{{ preview.Name }}</option>
+                </select>
+            </div>
+            <div class="col-lg-8">
+                <div class="img-square" ng-repeat="img in colour.Images">
+                    <span class="glyphicon glyphicon-remove pull-right" ng-click="removeImg(img, $parent)"></span>
+                    <img src="{{ img }}" />
+                </div>
+                <a href="javascript:void(0);"><span class="glyphicon glyphicon-plus"></span><input type="file" accept="image/jpeg" /></a>
+            </div>
+            <div class="col-lg-1">
+                <span class="glyphicon glyphicon-trash" ng-click="removeColour(colour)"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <span class="glyphicon glyphicon-plus" ng-click="addColour()"></span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <a href="javascript:void(0);" ng-click="saveProduct(product)" class="btn btn-default btn-lg pull-right">Сохранить</a>
+    </div>
+</div>

@@ -37,6 +37,38 @@
                     //    parent: 'index'
                     //}
                 })
+                .state('productViewer.create', {
+                    url: "/create",
+                    views: {
+                        "viewProductCreate": {
+                            controller: function ($scope) {
+                                $scope.product = {};
+
+                                $('.msdd').msDropDown();
+                            },
+                            templateUrl: "../app/dashboard/templates/productDetails.html"
+                        }
+                    }
+                    //reloadOnSearch: false,
+                    //ncyBreadcrumb: {
+                    //    label: "{{ makeModelYear }}",
+                    //    parent: 'index'
+                    //}
+                })
+                .state('productViewer.details', {
+                    url: "/products",
+                    views: {
+                        "viewProductDetails": {
+                            controller: productDetailsController,
+                            templateUrl: "../app/dashboard/templates/productDetails.html"
+                        }
+                    }
+                    //reloadOnSearch: false,
+                    //ncyBreadcrumb: {
+                    //    label: "{{ makeModelYear }}",
+                    //    parent: 'index'
+                    //}
+                })
                 //.state('master.trim', {
                 //    url: "/:trim",
                 //    views: {
