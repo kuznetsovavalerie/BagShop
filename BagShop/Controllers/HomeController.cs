@@ -1,7 +1,9 @@
 ﻿using BagShop.App_Code;
 using BagShop.Common.Interfaces;
 using BagShop.DAL;
+using BagShop.Identity;
 using BagShop.Models;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +14,7 @@ namespace BagShop.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly UserManager<IdentityUser, Guid> _userManager;
         private IProductService productService;
 
         public HomeController(IProductService productService)
@@ -39,6 +42,32 @@ namespace BagShop.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public ActionResult View(int productId)
+        {
+            var model = AutoMapperConfiguration.Mapper.Map<ProductPreviewModel>(productService.GetItem(productId));
+
+            return View(model);
+        }
+
+        public ActionResult Buy(int productId)
+        {
+            var model = new OrderViewModel() {
+                Product = AutoMapperConfiguration.Mapper.Map<ProductPreviewModel>(productService.GetItem(productId))
+            };
+
+            return View(model);
+        }
+
+        public ActionResult Confirm(OrderViewModel model)
+        {
+            if (ModelState.IsValid) {
+                //var model = AutoMapperConfiguration.Mapper.Map<ProductPreviewModel>(productService.GetItem(productId));
+                var user = new IdentityUser() { UserName = model.PhoneNumber };
+            }
+
+            return View(model);
         }
     }
 }
