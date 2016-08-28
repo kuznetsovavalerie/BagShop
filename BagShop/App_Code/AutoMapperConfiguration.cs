@@ -24,15 +24,24 @@ namespace BagShop.App_Code
                 cfg.CreateMap<BlogPost, BlogPostPreviewModel>();
                 cfg.CreateMap<ShoppingItem, ProductPreviewModel>()
                 .ForMember(
-                    dest => dest.UrlColours, 
-                    opt => opt.MapFrom(src => src.Colours.Select(c => c.PreviewImage))
+                    dest => dest.TitleImage,
+                    opt => opt.MapFrom(src => ImageHelper.GetProductTitleImageUrl(src.ID))
+                    )
+                .ForMember(
+                    dest => dest.ColourUrls, 
+                    opt => opt.MapFrom(src => src.Colours.Select(c => ImageHelper.GetColourPreviewImageUrl(c.ID)))
                     );
-
-                cfg.CreateMap<Colour, ColourViewModel>();
+                
                 cfg.CreateMap<ShoppingItem, ProductViewModel>()
                 .ForMember(
                     dest => dest.Colours,
-                    opt => opt.MapFrom(si => si.Colours.Select(c => Mapper.Map<Colour, ColourViewModel>(c)))
+                    opt => opt.MapFrom(si => si.Colours.Select(c => new ColourViewModel()
+                    {
+                        ID = c.ID,
+                        Name = c.Name,
+                        Images = ImageHelper.GetColourImageUrls(si.ID, c.ID),
+                        PreviewImage = ImageHelper.GetColourPreviewImageUrl(c.ID)
+                    }))
                     );
 
             });

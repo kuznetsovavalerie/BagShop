@@ -4,6 +4,6 @@
     {
         public int ID { get; set; }
 
-        public ColourPreview ColourPreview { get; set; }
+        public string Name { get; set; }
     }
 }

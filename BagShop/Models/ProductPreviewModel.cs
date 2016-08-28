@@ -12,6 +12,6 @@ namespace BagShop.Models
 
         public string TitleImage { get; set; }
 
-        public IEnumerable<string> UrlColours { get; set; }
+        public IEnumerable<string> ColourUrls { get; set; }
     }
 }
