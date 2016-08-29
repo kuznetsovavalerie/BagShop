@@ -1,5 +1,9 @@
 ﻿
 /* BASE */
+body {
+    background-color: #ccc;
+}
+
 .white-color * {
     color: #fff;
 }
@@ -12,7 +16,7 @@
 
 /* HOME PAGE */
 .banner {
-    background-image: url('img/LRG-X-JanSport-Lookbook-Shot-by-Street-Dreams-Magazine-3.jpg');
+    /*background-image: url('img/LRG-X-JanSport-Lookbook-Shot-by-Street-Dreams-Magazine-3.jpg');*/
     height: 100vh;
     width: 100vw;
     position:absolute;
@@ -21,9 +25,23 @@
     right: 0px;
 }
 
+#lookbook-carousel {
+    max-height: 100%;
+    overflow: hidden;
+}
+
+#lookbook-carousel .carousel-control {
+    color: #ccc;
+}
+
 .banner-info {
-    height: 100vh;
-    padding-top: 20%;
+    position: absolute;
+}
+
+@media only screen and (max-device-width: 768px) {
+    .banner-info {
+        display: none;
+    }
 }
 
 .btn-buy {

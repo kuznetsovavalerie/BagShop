@@ -362,6 +362,7 @@
     <Folder Include="app\shopping\" />
     <Folder Include="App_Data\" />
     <Folder Include="Content\img\blog\" />
+    <Folder Include="Content\img\colours\" />
     <Folder Include="Content\img\products\" />
     <Folder Include="Scripts\home\" />
     <Folder Include="Scripts\shopping\" />
