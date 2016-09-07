@@ -253,6 +253,8 @@
     <Content Include="app\dashboard\controllers\productController.js" />
     <Content Include="app\dashboard\templates\productDetails.html" />
     <Content Include="app\dashboard\templates\products.html" />
+    <Content Include="app\shopping\controllers\productViewController.js" />
+    <Content Include="app\shopping\controllers\shoppingController.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -368,7 +370,6 @@
     <Content Include="Views\Home\Buy.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="app\shopping\" />
     <Folder Include="App_Data\" />
     <Folder Include="Content\img\blog\" />
     <Folder Include="Content\img\colours\" />
