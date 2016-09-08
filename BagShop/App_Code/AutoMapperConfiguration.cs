@@ -35,12 +35,13 @@ namespace BagShop.App_Code
                 cfg.CreateMap<ShoppingItem, ProductViewModel>()
                 .ForMember(
                     dest => dest.Colours,
-                    opt => opt.MapFrom(si => si.Colours.Select(c => new ColourViewModel()
+                    opt => opt.MapFrom(si => si.Colours
+                    .Select(c => new ColourViewModel()
                     {
                         ID = c.ID,
-                        Name = c.Name,
-                        Images = ImageHelper.GetColourImageUrls(si.ID, c.ID),
-                        PreviewImage = ImageHelper.GetColourPreviewImageUrl(c.ID)
+                        Name = c.Preview.Name,
+                        Images = ImageHelper.GetColourImageUrls(si.ID, c.ID, c.Photos.Select(p => p.ID)),
+                        PreviewImage = ImageHelper.GetColourPreviewImageUrl(c.Preview.ID)
                     }))
                     );
 

@@ -52,7 +52,7 @@ namespace BagShop.DAL.Repositories
             return Set.Skip(skip).Take(take).ToListAsync(cancellationToken);
         }
 
-        public TEntity FindById(object id)
+        public virtual TEntity FindById(object id)
         {
             return Set.Find(id);
         }

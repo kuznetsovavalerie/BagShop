@@ -268,7 +268,17 @@
     <Content Include="Content\img\carousel\7.JPG" />
     <Content Include="Content\img\carousel\8.JPG" />
     <Content Include="Content\img\carousel\9.JPG" />
+    <Content Include="Content\img\colours\3.jpg" />
+    <Content Include="Content\img\colours\6.jpg" />
+    <Content Include="Content\img\colours\1.jpg" />
+    <Content Include="Content\img\colours\2.jpg" />
+    <Content Include="Content\img\colours\4.jpg" />
+    <Content Include="Content\img\colours\5.jpg" />
     <Content Include="Content\img\LRG-X-JanSport-Lookbook-Shot-by-Street-Dreams-Magazine-3.jpg" />
+    <Content Include="Content\img\products\1\1\1.jpg" />
+    <Content Include="Content\img\products\1\1\2.jpg" />
+    <Content Include="Content\img\products\1\title.jpg" />
+    <Content Include="Content\img\socials\vk.svg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -372,8 +382,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\img\blog\" />
-    <Folder Include="Content\img\colours\" />
-    <Folder Include="Content\img\products\" />
+    <Folder Include="Content\img\products\1\2\" />
+    <Folder Include="Content\img\products\1\3\" />
     <Folder Include="Scripts\home\" />
     <Folder Include="Scripts\shopping\" />
     <Folder Include="Views\Cart\" />

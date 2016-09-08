@@ -1,12 +1,9 @@
 ﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
 
 namespace BagShop.Common.Entities
 {
     public class ShoppingItem
     {
-        private ICollection<Colour> colours;
-
         public int ID { get; set; }
 
         public string Title { get; set; }

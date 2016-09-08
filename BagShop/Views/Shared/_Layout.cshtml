@@ -8,7 +8,7 @@
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
-<body>
+<body class="@ViewBag.PageClass">
     <div class="navbar navbar-fixed-top white-color">
         <div class="container">
             <div class="navbar-header">
@@ -32,6 +32,7 @@
             </div>
         </div>
     </div>
+
     <div class="container body-content">
         @RenderBody()
         <hr />

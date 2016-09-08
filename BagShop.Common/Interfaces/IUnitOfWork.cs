@@ -9,7 +9,7 @@ namespace BagShop.Common.Interfaces
     {
         IRepository<Order> OrderRepository { get; }
         IRepository<BlogPost> BlogPostRepository { get; }
-        IRepository<ShoppingItem> ShoppingItemRepository { get; }
+        IRepository<ShoppingItem> ProductRepository { get; }
         IExternalLoginRepository ExternalLoginRepository { get; }
         IRoleRepository RoleRepository { get; }
         IUserRepository UserRepository { get; }

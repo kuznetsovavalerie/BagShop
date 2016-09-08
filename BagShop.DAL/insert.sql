@@ -1,4 +1,31 @@
 ﻿use [BagShop]
 
-insert into [dbo].[ShoppingItems] values (N'Сумка поясная', '', '', '', 300, '')
+insert into [dbo].[ShoppingItems] values (N'Сумка поясная', 'супер мега офигенная сумка, ширина - over9000, высота 100500, удобная крaсивая ты в ней багиня', '95% любви и 5% полиэстера', 'Заботься о ней так, как о своей котейке. Если будешь обнимать ее ночью, она продолжит тебе долго и верно', 300, '')
 insert into [dbo].[ShoppingItems] values (N'Рюкзак', '', '', '', 300, '')
+
+insert into [dbo].[ColourPreviews] values (N'Черный')
+insert into [dbo].[ColourPreviews] values (N'Белый')
+insert into [dbo].[ColourPreviews] values (N'Бежевый')
+
+insert into [dbo].[Colours] values (1, 1)
+insert into [dbo].[Colours] values (2, 1)
+insert into [dbo].[Colours] values (3, 1)
+insert into [dbo].[Colours] values (1, 2)
+insert into [dbo].[Colours] values (2, 2)
+insert into [dbo].[Colours] values (3, 2)
+
+insert into [dbo].[ColourPhotoes] values (1)
+insert into [dbo].[ColourPhotoes] values (1)
+insert into [dbo].[ColourPhotoes] values (1)
+insert into [dbo].[ColourPhotoes] values (2)
+insert into [dbo].[ColourPhotoes] values (2)
+insert into [dbo].[ColourPhotoes] values (3)
+insert into [dbo].[ColourPhotoes] values (3)
+insert into [dbo].[ColourPhotoes] values (3)
+insert into [dbo].[ColourPhotoes] values (4)
+insert into [dbo].[ColourPhotoes] values (4)
+insert into [dbo].[ColourPhotoes] values (4)
+insert into [dbo].[ColourPhotoes] values (5)
+insert into [dbo].[ColourPhotoes] values (5)
+insert into [dbo].[ColourPhotoes] values (6)
+insert into [dbo].[ColourPhotoes] values (6)

@@ -12,7 +12,7 @@ namespace BagShop.DAL
         private BagShopContext _context;
         private Repository<Order> _orderRepository;
         private Repository<BlogPost> _blogPostRepository;
-        private Repository<ShoppingItem> _shoppingItemRepository;
+        private IRepository<ShoppingItem> _productRepository;
         private IExternalLoginRepository _externalLoginRepository;
         private IRoleRepository _roleRepository;
         private IUserRepository _userRepository;
@@ -47,14 +47,14 @@ namespace BagShop.DAL
             }
         }
 
-        public IRepository<ShoppingItem> ShoppingItemRepository
+        public IRepository<ShoppingItem> ProductRepository
         {
             get
             {
-                if (_shoppingItemRepository == null)
-                    _shoppingItemRepository = new Repository<ShoppingItem>(_context);
+                if (_productRepository == null)
+                    _productRepository = new ProductRepository(_context);
 
-                return _shoppingItemRepository;
+                return _productRepository;
             }
         }
 

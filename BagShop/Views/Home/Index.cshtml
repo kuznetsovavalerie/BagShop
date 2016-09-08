@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<BagShop.Models.ProductPreviewModel>
 @{
     ViewBag.Title = "Hedera Shop";
+    ViewBag.PageClass = "home";
 }
 
 @foreach(var product in Model)
@@ -119,7 +120,7 @@
                 <img src="@product.TitleImage" />
             </div>
             <div class="col-lg-12">
-                @Html.ActionLink(product.Title, "View", "Home", product.ID, new { @class = "" })
+                @Html.ActionLink(product.Title, "View", "Home", new { productId = product.ID }, new { @class = "" })
             </div>
             <div class="col-lg-12">
                 @Html.ActionLink("Купить", "Buy", "Home", product.ID, new { @class = "btn btn-default" })

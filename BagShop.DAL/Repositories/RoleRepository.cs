@@ -1,10 +1,7 @@
 ﻿using BagShop.Common.Entities;
 using BagShop.Common.Interfaces;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BagShop.DAL.Repositories

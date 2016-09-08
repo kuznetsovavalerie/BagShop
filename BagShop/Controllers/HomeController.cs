@@ -46,7 +46,8 @@ namespace BagShop.Controllers
 
         public ActionResult View(int productId)
         {
-            var model = AutoMapperConfiguration.Mapper.Map<ProductPreviewModel>(productService.GetItem(productId));
+            var product = productService.GetItem(productId);
+            var model = AutoMapperConfiguration.Mapper.Map<ProductViewModel>(product);
 
             return View(model);
         }

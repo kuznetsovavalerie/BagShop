@@ -1,7 +1,11 @@
 ﻿
 /* BASE */
 body {
-    background-color: #ccc;
+    /*background-color: #ccc;*/
+}
+
+.container.body-content {
+    margin-top: 85px;
 }
 
 .white-color * {
@@ -11,10 +15,32 @@ body {
 .navbar {
     text-transform:uppercase;
     font-family: Arial;
+    background-color: #333;
+}
+
+.title {
+    text-transform: uppercase;
+}
+
+.colours {
+    position: absolute;
+    right: 20px;
+    z-index: 20;
+}
+
+.colours .img-circle {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    border: 2px solid #fff;
 }
 /* END BASE */
 
 /* HOME PAGE */
+.home .navbar {
+    background-color: transparent;
+}
+
 .banner {
     /*background-image: url('img/LRG-X-JanSport-Lookbook-Shot-by-Street-Dreams-Magazine-3.jpg');*/
     height: 100vh;

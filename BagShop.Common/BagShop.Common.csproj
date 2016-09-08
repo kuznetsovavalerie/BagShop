@@ -41,10 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Colour.cs" />
+    <Compile Include="Entities\ColourPhoto.cs" />
+    <Compile Include="Entities\ColourPreview.cs" />
     <Compile Include="Entities\BlogPost.cs" />
     <Compile Include="Entities\Claim.cs" />
-    <Compile Include="Entities\ColourPreview.cs" />
+    <Compile Include="Entities\Colour.cs" />
     <Compile Include="Entities\ExternalLogin.cs" />
     <Compile Include="Entities\Order.cs" />
     <Compile Include="Entities\Role.cs" />

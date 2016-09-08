@@ -11,17 +11,17 @@ namespace BagShop.BLL.Services
 
         public IEnumerable<ShoppingItem> GetAllItems()
         {
-            return unitOfWork.ShoppingItemRepository.GetAll();
+            return unitOfWork.ProductRepository.GetAll();
         }
 
         public ShoppingItem GetItem(int id)
         {
-            return unitOfWork.ShoppingItemRepository.FindById(id);
+            return unitOfWork.ProductRepository.FindById(id);
         }
 
         public void AddItem(ShoppingItem item)
         {
-            unitOfWork.ShoppingItemRepository.Add(item);
+            unitOfWork.ProductRepository.Add(item);
         }
     }
 }
