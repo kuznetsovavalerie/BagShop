@@ -17,20 +17,13 @@
                             $q,
                             $controller,
                             $state) {
-        $scope.state = $state;
-
-        function bindData(scope, data) {
-            for (var property in data) {
-                if (data.hasOwnProperty(property)) {
-                    scope[property] = data[property];
-                }
-            }
-        }
+        $controller('baseController', { $scope: $scope });
+        $scope.url = "../Buy"
 
         $scope.init = function (data) {
-            bindData($scope, data);
+            $scope.bindData(data);
 
-            $scope.selectedColour = $scope.colours[0];
+            $scope.selectedColour = $scope.Colours[0];
         }
 
         $scope.selectColour = function (colour) {
@@ -38,7 +31,7 @@
         }
 
         $scope.buyLink = function () {
-            return $scope.url + "?productId=${$scope.ID}&colourId=${$scope.selectedColour.ID}";            
+            return $scope.url + "?productId=" + $scope.ID + "&colourId=" + $scope.selectedColour.ID;            
         }
     }
 })();

@@ -1,53 +1,50 @@
-﻿@model BagShop.Models.ProductViewModel
+﻿@using Newtonsoft.Json
+
+@model BagShop.Models.ProductViewModel
 @{
     ViewBag.Title = Model.Title;
 }
 
-<div class="row">
-    <div class="col-lg-12"><h3 class="title">@Model.Title</h3></div>
-</div>
-<div class="row">
-    <div class="col-lg-4">
-        <div class="colours">
-            <form>
-                @foreach (var colour in Model.Colours)
-                {
-                    <label for="@("colour-" + colour.ID.ToString())"><img class="img-circle" src="@colour.PreviewImage" /></label>
-                    <input class="hidden" id="@("colour-" + colour.ID.ToString())" value="@colour.ID" name="selectedColour" type="radio" />
-                }
-            </form>
-        </div>
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                @for (var i = 0; i < Model.Colours.Count(); i++)
-                {
-                    <li data-target="#myCarousel" data-slide-to="@i" class="@(i == 0 ? "active" : "")"></li>
-                }
-            </ol>
+<script type="text/javascript" src="~/app/baseController.js"></script>
+<script type="text/javascript" src="~/app/shopping/controllers/productViewController.js"></script>
 
-            <div class="carousel-inner" role="listbox">
-                @foreach (var image in Model.Colours.FirstOrDefault().Images)
-                {
-                    <div class="item active">
-                        <img src="@image" />
+<div ng-app="app" ng-controller="productController" ng-init="init(@JsonConvert.SerializeObject(Model))">
+    <div class="row">
+        <div class="col-lg-12"><h3 class="title">{{ Title }}</h3></div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="colours">
+                <div ng-repeat="Colour in Colours">
+                    <a ng-click="selectColour(Colour)"><img class="img-circle" src="{{ Colour.PreviewImage }}" ng-class="'active': Colour === selectedColour" /></a>
+                </div>
+            </div>
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li ng-repeat="index in Colours.length" data-target="#myCarousel" data-slide-to="{{ index }}" class="{{ index == 0 ? 'active' :'' }}"></li>
+                </ol>
+
+                <div class="carousel-inner" role="listbox">
+                    <div class="item" ng-repeat="image in Colours[0].Images">
+                        <img src="{{ image }}" />
                     </div>
-                }
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-lg-8">
-        <h4>Описание:</h4>
-        <p>@Model.Description</p>
-        <h4>Состав:</h4>
-        <p>@Model.Composition</p>
-        <h4>Уход:</h4>
-        <p>@Model.Care</p>
-        <div class="row">
-            <div class="col-lg-12">
-                <h3 class="price">@Model.Price грн.</h3>
-            </div>
-            <div class="col-lg-12">
-                @Html.ActionLink("Купить", "Buy", "Home", Model.ID, new { @class = "btn btn-default btn-lg" })
+        <div class="col-lg-8">
+            <h4>Описание:</h4>
+            <p>{{ Description }}</p>
+            <h4>Состав:</h4>
+            <p>{{ Composition }}</p>
+            <h4>Уход:</h4>
+            <p>{{ Care }}</p>
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="price">{{ Price }} грн.</h3>
+                </div>
+                <div class="col-lg-12">
+                    <a href="{{ buyLink() }}" class="btn btn-default btn-lg">Купить</a>
+                </div>
             </div>
         </div>
     </div>

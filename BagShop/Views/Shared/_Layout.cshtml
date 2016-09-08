@@ -5,7 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hedera Shop @(string.IsNullOrEmpty(ViewBag.Title) ? "" : " - " + ViewBag.Title)</title>
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+        @Scripts.Render("~/bundles/modernizr")
+        <script type="text/javascript" src="../Scripts/jquery-3.1.0.min.js"></script>
+        <script type="text/javascript" src="../Scripts/angular.min.js"></script>
+        <script type="text/javascript" src="../Scripts/lib/angular-ui-router.min.js"></script>
+        <script type="text/javascript" src="../Scripts/lib/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../Scripts/lib/angular-file-model.js"></script>
+        <script type="text/javascript" src="../Scripts/lib/jquery.dd.min.js"></script>
+        <script type="text/javascript" src="../app/app.js"></script>
+        <script type="text/javascript" src="../app/baseController.js"></script>
 
 </head>
 <body class="@ViewBag.PageClass">
