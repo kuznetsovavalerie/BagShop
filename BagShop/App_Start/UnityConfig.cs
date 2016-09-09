@@ -1,5 +1,6 @@
 using BagShop.BLL.Services;
 using BagShop.Common.Interfaces;
+using BagShop.Common.Interfaces.Services;
 using BagShop.DAL;
 using BagShop.Identity;
 using Microsoft.AspNet.Identity;
@@ -22,6 +23,7 @@ namespace BagShop
             container.RegisterType<RoleStore>(new TransientLifetimeManager());
             container.RegisterType<IBlogService, BlogService>();
             container.RegisterType<IProductService, ProductService>();
+            container.RegisterType<IOrderService, OrderService>();
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
             GlobalConfiguration.Configuration.DependencyResolver = new Unity.WebApi.UnityDependencyResolver(container);

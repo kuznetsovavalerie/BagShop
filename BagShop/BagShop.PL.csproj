@@ -255,6 +255,7 @@
     <Content Include="app\dashboard\controllers\productController.js" />
     <Content Include="app\dashboard\templates\productDetails.html" />
     <Content Include="app\dashboard\templates\products.html" />
+    <Content Include="app\shopping\controllers\orderController.js" />
     <Content Include="app\shopping\controllers\productViewController.js" />
     <Content Include="app\shopping\controllers\shoppingController.js" />
     <Content Include="Content\bootstrap-theme.css" />

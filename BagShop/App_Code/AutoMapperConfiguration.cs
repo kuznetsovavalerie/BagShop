@@ -45,6 +45,8 @@ namespace BagShop.App_Code
                     }))
                     );
 
+                cfg.CreateMap<OrderViewModel, Order>();
+
             });
 
             _mapper = enterpriseConfig.CreateMapper();

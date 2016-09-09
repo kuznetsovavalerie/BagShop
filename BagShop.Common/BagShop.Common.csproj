@@ -48,10 +48,14 @@
     <Compile Include="Entities\Colour.cs" />
     <Compile Include="Entities\ExternalLogin.cs" />
     <Compile Include="Entities\Order.cs" />
+    <Compile Include="Entities\OrderItem.cs" />
+    <Compile Include="Entities\OrderState.cs" />
     <Compile Include="Entities\Role.cs" />
     <Compile Include="Entities\ShoppingItem.cs" />
     <Compile Include="Entities\User.cs" />
-    <Compile Include="Interfaces\IProductService.cs" />
+    <Compile Include="Enums\OrderStateType.cs" />
+    <Compile Include="Interfaces\Services\IOrderService.cs" />
+    <Compile Include="Interfaces\Services\IProductService.cs" />
     <Compile Include="Interfaces\Services\IBlogService.cs" />
     <Compile Include="Interfaces\Repositories\IExternalLoginRepository.cs" />
     <Compile Include="Interfaces\Repositories\IRepository.cs" />

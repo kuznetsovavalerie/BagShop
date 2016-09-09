@@ -1,5 +1,7 @@
 ﻿using BagShop.App_Code;
+using BagShop.Common.Entities;
 using BagShop.Common.Interfaces;
+using BagShop.Common.Interfaces.Services;
 using BagShop.DAL;
 using BagShop.Identity;
 using BagShop.Models;
@@ -15,16 +17,17 @@ namespace BagShop.Controllers
     public class HomeController : Controller
     {
         private readonly UserManager<IdentityUser, Guid> _userManager;
-        private IProductService productService;
+        private IProductService _productService;
+        private IOrderService _orderService;
 
         public HomeController(IProductService productService)
         {
-            this.productService = productService;
+            this._productService = productService;
         }
 
         public ActionResult Index()
         {
-            var products = productService.GetAllItems()
+            var products = _productService.GetAllItems()
                 .Select(p => AutoMapperConfiguration.Mapper.Map<ProductPreviewModel>(p));
 
             return View(products);
@@ -46,7 +49,7 @@ namespace BagShop.Controllers
 
         public ActionResult View(int productId)
         {
-            var product = productService.GetItem(productId);
+            var product = _productService.GetItem(productId);
             var model = AutoMapperConfiguration.Mapper.Map<ProductViewModel>(product);
 
             return View(model);
@@ -55,7 +58,7 @@ namespace BagShop.Controllers
         public ActionResult Buy(int productId)
         {
             var model = new OrderViewModel() {
-                Product = AutoMapperConfiguration.Mapper.Map<ProductPreviewModel>(productService.GetItem(productId))
+                Product = AutoMapperConfiguration.Mapper.Map<ProductPreviewModel>(_productService.GetItem(productId))
             };
 
             return View(model);
@@ -64,8 +67,31 @@ namespace BagShop.Controllers
         public ActionResult Confirm(OrderViewModel model)
         {
             if (ModelState.IsValid) {
-                //var model = AutoMapperConfiguration.Mapper.Map<ProductPreviewModel>(productService.GetItem(productId));
-                var user = new IdentityUser() { UserName = model.PhoneNumber };
+                var user = _userManager.Find(model.PhoneNumber, "Dummy!1");
+
+                if(user == null)
+                {
+                    user = new IdentityUser()
+                    {
+                        UserName = model.PhoneNumber,
+                        FirstName = model.FirstName,
+                        LastName = model.LastName
+                    };
+
+                    _userManager.Create(user, "Dummy!1");
+                }
+
+                var product = _productService.GetItem(model.Product.ID);
+                var order = AutoMapperConfiguration.Mapper.Map<Order>(model);
+                var orderItem = new OrderItem()
+                {
+                    Item = _productService.GetItem(model.Product.ID),
+                    Quantity = model.Quantity,
+                    SelectedColourID = model.SelectedColourId
+                };
+
+                order.Items.Add(orderItem);
+                _orderService.AddItem(order, user.Id);
             }
 
             return View(model);
