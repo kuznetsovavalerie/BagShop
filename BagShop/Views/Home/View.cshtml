@@ -16,17 +16,19 @@
         <div class="col-lg-4">
             <div class="colours">
                 <div ng-repeat="Colour in Colours">
-                    <a ng-click="selectColour(Colour)"><img class="img-circle" src="{{ Colour.PreviewImage }}" ng-class="'active': Colour === selectedColour" /></a>
+                    <a ng-click="selectColour(Colour)"><img class="img-circle" src="{{ Colour.PreviewImage }}" ng-class="{ 'active': Colour === selectedColour }" /></a>
                 </div>
             </div>
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
-                    <li ng-repeat="index in Colours.length" data-target="#myCarousel" data-slide-to="{{ index }}" class="{{ index == 0 ? 'active' :'' }}"></li>
+                    <li ng-repeat="image in selectedColour.Images" data-target="#myCarousel" data-slide-to="{{ $index }}" ng-class="{ 'active' : $index == 0 }">
+                        <div style="{{ 'background-color: #' + (($index + 1) * 117) }}" width="50" height="50"></div>
+                    </li>
                 </ol>
 
                 <div class="carousel-inner" role="listbox">
-                    <div class="item" ng-repeat="image in Colours[0].Images">
-                        <img src="{{ image }}" />
+                    <div class="item" ng-repeat="image in selectedColour.Images" ng-class="{ 'active' : $index == 0 }" style="{{ 'background-color: #' + (($index + 1) * 117) }}">
+                        <img src="{{ image }}" style="width: 100%; opacity: 0;" />
                     </div>
                 </div>
             </div>
