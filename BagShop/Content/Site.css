@@ -38,6 +38,19 @@ body {
     margin: 5px;
     border: 2px solid #fff;
 }
+
+.img-preview {
+    height: 50px;
+}
+
+.colour-dd button, .colour-dd a {
+    height: 40px;
+    margin: 10px 0px;
+}
+
+.colour-dd img {
+    height: 100%;
+}
 /* END BASE */
 
 /* HOME PAGE */

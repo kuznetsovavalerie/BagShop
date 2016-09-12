@@ -22,6 +22,16 @@
 
         $scope.init = function (data) {
             $scope.bindData(data);
+
+            $scope.selectedColour = $.grep($scope.Product.Colours, function (e) {
+                return e.ID == $scope.SelectedColourId;
+            })[0];
+
+            $scope.selectColour = function (colour) {
+                $scope.selectedColour = colour;
+            }
+
+            console.log($scope.selectedColour);
         }
     }
 })();

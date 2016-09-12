@@ -18,7 +18,7 @@ namespace BagShop.App_Code
 
         public static string GetProductTitleImageUrl(int id)
         {
-            var url = string.Concat(productsImageDir, @"/", titleImageName);
+            var url = string.Join(@"/", productsImageDir, id.ToString(), titleImageName);
             
             return url;
         }

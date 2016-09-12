@@ -55,10 +55,11 @@ namespace BagShop.Controllers
             return View(model);
         }
 
-        public ActionResult Buy(int productId)
+        public ActionResult Buy(int productId, int colourId)
         {
             var model = new OrderViewModel() {
-                Product = AutoMapperConfiguration.Mapper.Map<ProductPreviewModel>(_productService.GetItem(productId))
+                Product = AutoMapperConfiguration.Mapper.Map<ProductPreviewModel>(_productService.GetItem(productId)),
+                SelectedColourId = colourId
             };
 
             return View(model);

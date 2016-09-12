@@ -13,6 +13,9 @@
         <div class="col-lg-12"><h3 class="title">{{ Title }}</h3></div>
     </div>
     <div class="row">
+        <div class="col-lg-2">
+            <a href="javascript:void(0);" class="col-lg-6 img-preview" ng-repeat="image in selectedColour.Images" style="{{ 'background-color: #' + (($index + 1) * 117) + ';' }}" data-target="#myCarousel" data-slide-to="{{ $index }}" ng-class="{ 'active' : $index == 0 }"></a>
+        </div>
         <div class="col-lg-4">
             <div class="colours">
                 <div ng-repeat="Colour in Colours">
@@ -20,11 +23,6 @@
                 </div>
             </div>
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li ng-repeat="image in selectedColour.Images" data-target="#myCarousel" data-slide-to="{{ $index }}" ng-class="{ 'active' : $index == 0 }">
-                        <div style="{{ 'background-color: #' + (($index + 1) * 117) }}" width="50" height="50"></div>
-                    </li>
-                </ol>
 
                 <div class="carousel-inner" role="listbox">
                     <div class="item" ng-repeat="image in selectedColour.Images" ng-class="{ 'active' : $index == 0 }" style="{{ 'background-color: #' + (($index + 1) * 117) }}">
@@ -33,7 +31,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-8">
+        <div class="col-lg-6">
             <h4>Описание:</h4>
             <p>{{ Description }}</p>
             <h4>Состав:</h4>

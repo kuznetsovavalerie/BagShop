@@ -28,8 +28,14 @@ namespace BagShop.App_Code
                     opt => opt.MapFrom(src => ImageHelper.GetProductTitleImageUrl(src.ID))
                     )
                 .ForMember(
-                    dest => dest.ColourUrls, 
-                    opt => opt.MapFrom(src => src.Colours.Select(c => ImageHelper.GetColourPreviewImageUrl(c.ID)))
+                    dest => dest.Colours, 
+                    opt => opt.MapFrom(src => src.Colours.Select(c => 
+                    new ColourPreviewModel()
+                    {
+                        ID = c.ID,
+                        Name = c.Preview.Name,
+                        PreviewImage = ImageHelper.GetColourPreviewImageUrl(c.Preview.ID)
+                    }))
                     );
                 
                 cfg.CreateMap<ShoppingItem, ProductViewModel>()

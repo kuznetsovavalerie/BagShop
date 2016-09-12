@@ -18,7 +18,7 @@
                             $controller,
                             $state) {
         $controller('baseController', { $scope: $scope });
-        $scope.url = "../Buy"
+        $scope.url = "/Home/Buy"
 
         $scope.init = function (data) {
             $scope.bindData(data);
