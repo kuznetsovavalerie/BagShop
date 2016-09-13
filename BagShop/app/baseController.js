@@ -16,5 +16,17 @@
                 }
             }
         }
+
+        $scope.resolveData = function (names) {
+            var obj = {};
+
+            names.forEach(function (property) {
+                if ($scope.hasOwnProperty(property)) {
+                    obj[property] = $scope[property];
+                }
+            });
+
+            return obj;
+        }
     }
 })();

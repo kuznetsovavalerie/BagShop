@@ -22,7 +22,7 @@ namespace BagShop.Models
         public string PhoneNumber { get; set; }
 
         [Required]
-        public string DeliveryAddres { get; set; }
+        public string Address { get; set; }
 
         [Required]
         public int Quantity { get; set; }

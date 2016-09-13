@@ -65,6 +65,7 @@ namespace BagShop.Controllers
             return View(model);
         }
 
+        [HttpPost]
         public ActionResult Confirm(OrderViewModel model)
         {
             if (ModelState.IsValid) {
