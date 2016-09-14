@@ -34,8 +34,12 @@
         }
 
         $scope.submit = function () {
-            var model = $scope.resolveData(['FirstName', 'LastName', 'PhoneNumber', 'Address', 'SelectedColourId']);
-            console.log(model);
+            var model = $scope.resolveData(['FirstName',
+                'LastName',
+                'PhoneNumber',
+                'Address',
+                'SelectedColourId',
+                'Product']);
 
             $.ajax({
                 method: 'POST',
