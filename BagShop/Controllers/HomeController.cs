@@ -20,9 +20,10 @@ namespace BagShop.Controllers
         private IProductService _productService;
         private IOrderService _orderService;
 
-        public HomeController(IProductService productService)
+        public HomeController(IProductService productService, UserManager<IdentityUser, Guid> userManager)
         {
             this._productService = productService;
+            this._userManager = userManager;
         }
 
         public ActionResult Index()

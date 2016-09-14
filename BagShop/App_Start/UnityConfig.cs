@@ -21,6 +21,7 @@ namespace BagShop
             container.RegisterType<IUnitOfWork, UnitOfWork>(new HierarchicalLifetimeManager(), new InjectionConstructor("BagShop"));
             container.RegisterType<IUserStore<IdentityUser, Guid>, UserStore>(new TransientLifetimeManager());
             container.RegisterType<RoleStore>(new TransientLifetimeManager());
+            container.RegisterType<UserManager<IdentityUser, Guid>>(new InjectionConstructor(container.Resolve<UserStore>()));
             container.RegisterType<IBlogService, BlogService>();
             container.RegisterType<IProductService, ProductService>();
             container.RegisterType<IOrderService, OrderService>();
