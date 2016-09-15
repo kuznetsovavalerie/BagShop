@@ -54,6 +54,7 @@
     <Compile Include="Entities\ShoppingItem.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Enums\OrderStateType.cs" />
+    <Compile Include="Interfaces\Services\IMailService.cs" />
     <Compile Include="Interfaces\Services\IOrderService.cs" />
     <Compile Include="Interfaces\Services\IProductService.cs" />
     <Compile Include="Interfaces\Services\IBlogService.cs" />

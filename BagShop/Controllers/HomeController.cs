@@ -1,4 +1,5 @@
 ﻿using BagShop.App_Code;
+using BagShop.BLL.Services;
 using BagShop.Common.Entities;
 using BagShop.Common.Interfaces;
 using BagShop.Common.Interfaces.Services;
@@ -95,6 +96,8 @@ namespace BagShop.Controllers
 
                 order.Items.Add(orderItem);
                 _orderService.AddItem(order, user.Id);
+
+                MailService.SendOrderInformation(order);
             }
 
             return View(model);
