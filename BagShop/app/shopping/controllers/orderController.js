@@ -26,6 +26,8 @@
             $scope.selectedColour = $.grep($scope.Product.Colours, function (e) {
                 return e.ID == $scope.SelectedColourId;
             })[0];
+
+            $scope.Quantity = 1;
         }
 
         $scope.selectColour = function (colour) {
