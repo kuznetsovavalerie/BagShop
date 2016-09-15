@@ -59,7 +59,8 @@ namespace BagShop.Controllers
 
         public ActionResult Buy(int productId, int colourId)
         {
-            var model = new OrderViewModel() {
+            var model = new OrderViewModel()
+            {
                 Product = AutoMapperConfiguration.Mapper.Map<ProductPreviewModel>(_productService.GetItem(productId)),
                 SelectedColourId = colourId
             };
@@ -68,39 +69,42 @@ namespace BagShop.Controllers
         }
 
         [HttpPost]
-        public ActionResult Confirm(OrderViewModel model)
+        public JsonResult Confirm(OrderViewModel model)
         {
-            if (ModelState.IsValid) {
-                var user = _userManager.Find(model.PhoneNumber, "Dummy!1");
-
-                if(user == null)
-                {
-                    user = new IdentityUser()
-                    {
-                        UserName = model.PhoneNumber,
-                        FirstName = model.FirstName,
-                        LastName = model.LastName
-                    };
-
-                    _userManager.Create(user, "Dummy!1");
-                }
-
-                var product = _productService.GetItem(model.Product.ID);
-                var order = AutoMapperConfiguration.Mapper.Map<Order>(model);
-                var orderItem = new OrderItem()
-                {
-                    Item = _productService.GetItem(model.Product.ID),
-                    Quantity = model.Quantity,
-                    SelectedColourID = model.SelectedColourId
-                };
-
-                order.Items.Add(orderItem);
-                _orderService.AddItem(order, user.Id);
-
-                MailService.SendOrderInformation(order);
+            if (!ModelState.IsValid)
+            {
+                return Json(new { Success = false });
             }
 
-            return View(model);
+            var user = _userManager.Find(model.PhoneNumber, "Dummy!1");
+
+            if (user == null)
+            {
+                user = new IdentityUser()
+                {
+                    UserName = model.PhoneNumber,
+                    FirstName = model.FirstName,
+                    LastName = model.LastName
+                };
+
+                _userManager.Create(user, "Dummy!1");
+            }
+
+            var product = _productService.GetItem(model.Product.ID);
+            var order = AutoMapperConfiguration.Mapper.Map<Order>(model);
+            var orderItem = new OrderItem()
+            {
+                Item = _productService.GetItem(model.Product.ID),
+                Quantity = model.Quantity,
+                SelectedColourID = model.SelectedColourId
+            };
+
+            order.Items.Add(orderItem);
+            _orderService.AddItem(order, user.Id);
+
+            MailService.SendOrderInformation(order);
+
+            return Json(new { Success = true });
         }
     }
 }

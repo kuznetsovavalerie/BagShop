@@ -51,6 +51,10 @@
                 contentType: 'application/json'
             }).done(function (data) {
                 console.log(data);
+
+                if (data.Success) {
+                    $('#confirmation-modal').modal();
+                }
             });
         }
     }
