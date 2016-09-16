@@ -6,6 +6,7 @@ namespace BagShop.Common.Entities
     public class Order
     {
         private ICollection<OrderState> states;
+        private ICollection<OrderItem> items;
 
         public int ID { get; set; }
 
@@ -13,7 +14,19 @@ namespace BagShop.Common.Entities
 
         public string DeliveryAddress { get; set; }
 
-        public ICollection<OrderItem> Items { get; set; }
+        public ICollection<OrderItem> Items
+        {
+            get
+            {
+                if (items == null)
+                {
+                    items = new List<OrderItem>();
+                }
+
+                return items;
+            }
+            set { }
+        }
 
         public DateTime OrderDate { get; set; }
 
