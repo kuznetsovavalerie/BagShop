@@ -10,15 +10,15 @@ namespace BagShop.Models
         public int SelectedColourId { get; set; }
         
         [Required]
-        [RegularExpression("^[a-zA-Z␣]{1,30}$")]
+        [RegularExpression(@"^[-a-zA-Z\u0400-\u04ff\s]+$")]
         public string FirstName { get; set; }
         
         [Required]
-        [RegularExpression("^[a-zA-Z␣]{1,30}$")]
+        [RegularExpression(@"^[-a-zA-Z\u0400-\u04ff\s]+$")]
         public string LastName { get; set; }
         
         [Required]
-        [RegularExpression("^[0-9]{9}$")]
+        [RegularExpression(@"^[0-9]{9}$")]
         public string PhoneNumber { get; set; }
 
         [Required]
