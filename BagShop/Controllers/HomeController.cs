@@ -71,6 +71,11 @@ namespace BagShop.Controllers
             return View(model);
         }
 
+        public ActionResult DeliveryDetails()
+        {
+            return View();
+        }
+
         [HttpPost]
         public JsonResult Confirm(OrderViewModel model)
         {
