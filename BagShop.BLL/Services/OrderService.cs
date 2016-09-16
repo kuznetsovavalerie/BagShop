@@ -30,6 +30,7 @@ namespace BagShop.BLL.Services
         public void AddItem(Order item, Guid customerId)
         {
             var customer = unitOfWork.UserRepository.FindById(customerId);
+            item.Customer = customer;
 
             var state = new OrderState()
             {

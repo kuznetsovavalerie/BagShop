@@ -21,10 +21,13 @@ namespace BagShop.Controllers
         private IProductService _productService;
         private IOrderService _orderService;
 
-        public HomeController(IProductService productService, UserManager<IdentityUser, Guid> userManager)
+        public HomeController(IProductService productService, 
+            UserManager<IdentityUser, Guid> userManager, 
+            IOrderService orderService)
         {
             this._productService = productService;
             this._userManager = userManager;
+            this._orderService = orderService;
         }
 
         public ActionResult Index()
