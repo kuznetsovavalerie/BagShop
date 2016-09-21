@@ -18,7 +18,7 @@ namespace BagShop.BLL.Services
                 client.Credentials = new System.Net.NetworkCredential("hederabrand@gmail.com", "Hedera!1");
                 client.EnableSsl = true;
                 mail.Subject = "Новый заказ";
-                mail.Body = $"<html><body><h2>Заказ №{order.ID}</h2><p>{order.Customer.FirstName} {order.Customer.LastName}</p><p>{order.Customer.UserName}</p><p>{order.DeliveryAddress}</p><p>{string.Join("\n", order.Items.Select(i => string.Join(", ", i.Item.Title, i.SelectedColour.Preview.Name, i.Quantity + "шт")))}</p></body></html>";
+                mail.Body = $"Заказ №{order.ID} \n{order.Customer.FirstName} {order.Customer.LastName}, {order.Customer.UserName}, {order.DeliveryAddress}, {string.Join("\n", order.Items.Select(i => string.Join(", ", i.Item.Title, i.SelectedColour.Preview.Name, i.Quantity + "шт")))}";
                 client.Send(mail);
             }
         }
