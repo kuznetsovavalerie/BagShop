@@ -45,7 +45,7 @@
         </div>
     </div>
 
-    <div class="container body-content">
+    <div class="@(@ViewBag.PageClass != "home" ? "container body-content" : "")">
         @RenderBody()
     </div>
     <footer>

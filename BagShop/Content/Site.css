@@ -86,7 +86,6 @@ footer {
 
 .banner {
     width: 100vw;
-    position:absolute;
     z-index: 0;
     top: 0px;
     right: 0px;
