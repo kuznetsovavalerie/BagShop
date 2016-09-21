@@ -131,7 +131,16 @@ footer {
 }
 
 .product-preview .colours {
-    max-width: 20%;
+    max-width: 18%;
+}
+
+.product-preview .colours .img-circle {
+    width: 25px;
+    height: 25px;
+}
+
+.product-preview a {
+    font-size: 18px;
 }
 
 /*#about-us-block {
