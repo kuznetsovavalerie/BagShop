@@ -25,8 +25,11 @@ namespace BagShop.App_Code
                 cfg.CreateMap<ShoppingItem, ProductPreviewModel>()
                 .ForMember(
                     dest => dest.TitleImage,
-                    opt => opt.MapFrom(src => ImageHelper.GetProductTitleImageUrl(src.ID))
-                    )
+                    opt => opt.MapFrom(src => string.Join(
+                        @"/", 
+                        Configuration.ProductsImageFolder, 
+                        src.ID.ToString(), 
+                        Configuration.TitleImageName)))
                 .ForMember(
                     dest => dest.Colours, 
                     opt => opt.MapFrom(src => src.Colours.Select(c => 
@@ -34,7 +37,7 @@ namespace BagShop.App_Code
                     {
                         ID = c.ID,
                         Name = c.Preview.Name,
-                        PreviewImage = ImageHelper.GetColourPreviewImageUrl(c.Preview.ID)
+                        PreviewImage = string.Concat(Configuration.ColoursImageFolder, @"/", c.Preview.ID.ToString(), ".jpg")
                     }))
                     );
                 
@@ -46,12 +49,28 @@ namespace BagShop.App_Code
                     {
                         ID = c.ID,
                         Name = c.Preview.Name,
-                        Images = ImageHelper.GetColourImageUrls(si.ID, c.ID, c.Photos.Select(p => p.ID)),
-                        PreviewImage = ImageHelper.GetColourPreviewImageUrl(c.Preview.ID)
+                        Images = c.Photos.Select(p => 
+                            string.Join(
+                                @"/", 
+                                Configuration.ProductsImageFolder, 
+                                si.ID.ToString(), c.ID.ToString(), 
+                                p.ID.ToString() + ".jpg"
+                                )),
+                        PreviewImage = string.Concat(Configuration.ColoursImageFolder, @"/", c.Preview.ID.ToString(), ".jpg")
                     }))
-                    );
+                    )
+                .ForMember(
+                    dest => dest.TitleImage,
+                    opt => opt.MapFrom(src => string.Join(
+                        @"/",
+                        Configuration.ProductsImageFolder,
+                        src.ID.ToString(),
+                        Configuration.TitleImageName)));
 
-                cfg.CreateMap<OrderViewModel, Order>();
+                cfg.CreateMap<OrderViewModel, Order>()
+                .ForMember(
+                    dest => dest.DeliveryAddress,
+                    opt => opt.MapFrom(src => src.Address));
 
             });
 
