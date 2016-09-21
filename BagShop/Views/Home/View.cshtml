@@ -9,41 +9,43 @@
 <script type="text/javascript" src="~/app/shopping/controllers/productViewController.js"></script>
 
 <div ng-app="app" ng-controller="productController" ng-init="init(@JsonConvert.SerializeObject(Model))">
-    <div class="row">
-        <div class="col-lg-12"><h3 class="title">{{ Title }}</h3></div>
-    </div>
-    <div class="row">
-        <div class="col-sm-2 hidden-xs">
-            <a href="javascript:void(0);" class="col-lg-6 img-preview" ng-repeat="image in selectedColour.Images" data-target="#myCarousel" data-slide-to="{{ $index }}" ng-class="{ 'active' : $index == 0 }"><img src="{{ image }}" style="width: 100%;" /></a>
+    <div ng-cloak>
+        <div class="row">
+            <div class="col-lg-12"><h3 class="title">{{ Title }}</h3></div>
         </div>
-        <div class="col-sm-4">
-            <div class="colours">
-                <div ng-repeat="Colour in Colours">
-                    <a ng-click="selectColour(Colour)"><img class="img-circle" src="{{ Colour.PreviewImage }}" ng-class="{ 'active': Colour === selectedColour }" /></a>
-                </div>
+        <div class="row">
+            <div class="col-sm-2 hidden-xs">
+                <a href="javascript:void(0);" class="col-lg-6 img-preview" ng-repeat="image in selectedColour.Images" data-target="#myCarousel" data-slide-to="{{ $index }}" ng-class="{ 'active' : $index == 0 }"><img src="{{ image }}" style="width: 100%;" /></a>
             </div>
-            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <div class="col-sm-4">
+                <div class="colours">
+                    <div ng-repeat="Colour in Colours">
+                        <a ng-click="selectColour(Colour)"><img class="img-circle" src="{{ Colour.PreviewImage }}" ng-class="{ 'active': Colour === selectedColour }" /></a>
+                    </div>
+                </div>
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
-                <div class="carousel-inner" role="listbox">
-                    <div class="item" ng-repeat="image in selectedColour.Images" ng-class="{ 'active' : $index == 0 }">
-                        <img src="{{ image }}" style="width: 100%;" />
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item" ng-repeat="image in selectedColour.Images" ng-class="{ 'active' : $index == 0 }">
+                            <img src="{{ image }}" style="width: 100%;" />
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-sm-6">
-            <h4>Описание:</h4>
-            <p>{{ Description }}</p>
-            <h4>Состав:</h4>
-            <p>{{ Composition }}</p>
-            <h4>Уход:</h4>
-            <p>{{ Care }}</p>
-            <div class="row">
-                <div class="col-lg-12">
-                    <h3 class="price">{{ Price }} грн.</h3>
-                </div>
-                <div class="col-lg-12">
-                    <a href="{{ buyLink() }}" class="btn btn-default btn-lg">Купить</a>
+            <div class="col-sm-6">
+                <h4>Описание:</h4>
+                <p>{{ Description }}</p>
+                <h4>Состав:</h4>
+                <p>{{ Composition }}</p>
+                <h4>Уход:</h4>
+                <p>{{ Care }}</p>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h3 class="price">{{ Price }} грн.</h3>
+                    </div>
+                    <div class="col-lg-12">
+                        <a href="{{ buyLink() }}" class="btn btn-default btn-lg">Купить</a>
+                    </div>
                 </div>
             </div>
         </div>
