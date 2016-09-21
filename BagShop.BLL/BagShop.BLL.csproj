@@ -46,6 +46,7 @@
     <Compile Include="Services\MailService.cs" />
     <Compile Include="Services\OrderService.cs" />
     <Compile Include="Services\ProductService.cs" />
+    <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BagShop.Common\BagShop.Common.csproj">
