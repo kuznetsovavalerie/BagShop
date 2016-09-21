@@ -23,11 +23,15 @@
         $scope.init = function (data) {
             $scope.bindData(data);
 
-            $scope.selectedColour = $scope.Colours[0];
+            $scope.selectColour($scope.Colours[0]);
         }
 
         $scope.selectColour = function (colour) {
             $scope.selectedColour = colour;
+
+            if ($scope.selectedColour.Images.length < 1) {
+                $scope.selectedColour.Images[0] = $scope.TitleImage;
+            }
         }
 
         $scope.buyLink = function () {

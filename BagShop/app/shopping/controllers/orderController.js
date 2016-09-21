@@ -17,6 +17,8 @@
                             $q,
                             $controller,
                             $state) {
+        var loading = false;
+
         $controller('baseController', { $scope: $scope });
         $scope.url = "/Home/Confirm";
 
@@ -36,12 +38,19 @@
         }
 
         $scope.submit = function () {
+            if (loading) {
+                return;
+            }
+
+            loading = true;
+
             var model = $scope.resolveData(['FirstName',
                 'LastName',
                 'PhoneNumber',
                 'Address',
                 'SelectedColourId',
-                'Product']);
+                'Product',
+                'Quantity']);
 
             $.ajax({
                 method: 'POST',
@@ -55,6 +64,8 @@
                 if (data.Success) {
                     $('#confirmation-modal').modal();
                 }
+
+                loading = false;
             });
         }
     }
