@@ -28,7 +28,7 @@ namespace BagShop.DAL.Repositories
 
         public void Create(Order book)
         {
-            context.Orders.Add(book);
+            book = context.Orders.Add(book);
         }
 
         public void Update(Order book)

@@ -22,7 +22,7 @@ namespace BagShop.DAL.Repositories
             get { return _set ?? (_set = _context.Set<TEntity>()); }
         }
 
-        public List<TEntity> GetAll()
+        public virtual List<TEntity> GetAll()
         {
             return Set.ToList();
         }

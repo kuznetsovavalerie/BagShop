@@ -20,22 +20,26 @@ namespace BagShop.Controllers
         private readonly UserManager<IdentityUser, Guid> _userManager;
         private IProductService _productService;
         private IOrderService _orderService;
+        private IUserService _userService;
 
         public HomeController(IProductService productService, 
             UserManager<IdentityUser, Guid> userManager, 
-            IOrderService orderService)
+            IOrderService orderService,
+            IUserService userService)
         {
             this._productService = productService;
             this._userManager = userManager;
             this._orderService = orderService;
+            this._userService = userService;
         }
 
         public ActionResult Index()
         {
-            var products = _productService.GetAllItems()
+            var products = _productService.GetAllItems();
+            var model = products
                 .Select(p => AutoMapperConfiguration.Mapper.Map<ProductPreviewModel>(p));
 
-            return View(products);
+            return View(model);
         }
 
         public ActionResult About()
@@ -91,12 +95,19 @@ namespace BagShop.Controllers
                 user = new IdentityUser()
                 {
                     UserName = model.PhoneNumber,
-                    FirstName = model.FirstName,
-                    LastName = model.LastName
                 };
 
                 _userManager.Create(user, "Dummy!1");
             }
+
+
+            var entityUser = _userService.Get(user.Id);
+
+            entityUser.FirstName = model.FirstName;
+            entityUser.LastName = model.LastName;
+            entityUser.Address = model.Address;
+
+            _userService.Update(entityUser);
 
             var product = _productService.GetItem(model.Product.ID);
             var order = AutoMapperConfiguration.Mapper.Map<Order>(model);
