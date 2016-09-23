@@ -78,6 +78,15 @@
                     </div>
                 </div>
                 <input type="submit" class="btn btn-default center-block" value="Подтвердить" ng-disabled="orderSubmission.$invalid">
+                <div class="row" ng-show="form.$submitted">
+                    <ul>
+                        <li class="text-danger" ng-show="orderSubmission.Quantity.$error.required">Введите количество.</li>
+                        <li class="text-danger" ng-show="orderSubmission.PhoneNumber.$error">Введите правильный номер телефона.</li>
+                        <li class="text-danger" ng-show="orderSubmission.FirstName.$error">Введите корректное имя.</li>
+                        <li class="text-danger" ng-show="orderSubmission.LastName.$error">Введите корректную фамилию.</li>
+                        <li class="text-danger" ng-show="orderSubmission.Address.$error">Введите адрес.</li>
+                    </ul>
+                </div>
             </form>
         </div>
         <div class="col-lg-2"></div>
