@@ -144,12 +144,12 @@
             @foreach (var product in Model)
             {
                 <div class="col-sm-4 text-center product-preview">
-                    <div class="colours">
+                    @*<div class="colours">
                         @foreach (var colour in product.Colours)
-                {
+                        {
                             <img class="img-circle" src="@colour.PreviewImage" />
                         }
-                    </div>
+                    </div>*@
                     <a href="../Home/View?productId=@product.ID">
                         <img class="title-img" src="@product.TitleImage" />
                     </a>
