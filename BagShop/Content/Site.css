@@ -110,6 +110,10 @@ footer {
     }
 }
 
+.brand-description {
+    margin: 20px 0px 25px;
+}
+
 .btn-buy {
     background-color: transparent;
     border-radius: 50px;

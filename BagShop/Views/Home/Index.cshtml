@@ -97,12 +97,47 @@
     </div>
 
     <div class="container">
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-10">
+                <h3 class="text-center brand-description">
+                    Hedera - сумки и рюкзаки для повседневной активной жизни
+                </h3>
+            </div>
+            <div class="col-lg-1"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row" id="catalog">
+            @foreach (var product in Model)
+            {
+                <div class="col-sm-4 text-center product-preview">
+                    @*<div class="colours">
+                            @foreach (var colour in product.Colours)
+                            {
+                                <img class="img-circle" src="@colour.PreviewImage" />
+                            }
+                        </div>*@
+                    <a href="../Home/View?productId=@product.ID">
+                        <img class="title-img" src="@product.TitleImage" />
+                    </a>
+                    <h3>@product.Price грн</h3>
+                    <a href="../Home/View?productId=@product.ID">@product.Title</a>
+                </div>
+            }
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="container">
         <div id="about-us-block">
             <div class="row">
                 <div class="col-lg-1"></div>
                 <div class="col-lg-10">
                     <h3 class="text-center">
-                        Hedera - молодая украинская марка сумок и рюкзаков для повседневной городской активной жизни. Мы совсем свеженькие и только вышли на украинский рынок, но в наших планах уже есть расширение ассортимента и завоевание ваших сердец и инстаграм-аккаунтов удобными и красивыми аксессуарами.
+                        Мы - молодой украинский бренд и только вышли на украинский рынок, но в наших планах уже есть расширение ассортимента и завоевание ваших сердец и инстаграм-аккаунтов удобными и красивыми аксессуарами.
                     </h3>
                 </div>
                 <div class="col-lg-1"></div>
@@ -136,27 +171,6 @@
                     <a href="https://www.instagram.com/hedera_shop/" target="_blank"><img class="svg" src="~/Content/img/socials/inst.svg" width="22" /></a>
                 </div>
             </div>
-        </div>
-
-        <hr />
-
-        <div class="row" id="catalog">
-            @foreach (var product in Model)
-            {
-                <div class="col-sm-4 text-center product-preview">
-                    @*<div class="colours">
-                        @foreach (var colour in product.Colours)
-                        {
-                            <img class="img-circle" src="@colour.PreviewImage" />
-                        }
-                    </div>*@
-                    <a href="../Home/View?productId=@product.ID">
-                        <img class="title-img" src="@product.TitleImage" />
-                    </a>
-                    <h3>@product.Price грн</h3>
-                    <a href="../Home/View?productId=@product.ID">@product.Title</a>
-                </div>
-            }
         </div>
     </div>
 </div>
