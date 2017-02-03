@@ -17,7 +17,7 @@
                             $q,
                             $controller,
                             $state) {
-        var loading = false;
+        $scope.loading = false;
 
         $controller('baseController', { $scope: $scope });
         $scope.url = "/Home/Confirm";
@@ -38,11 +38,11 @@
         }
 
         $scope.submit = function () {
-            if (loading) {
+            if ($scope.loading) {
                 return;
             }
 
-            loading = true;
+            $scope.loading = true;
 
             var model = $scope.resolveData(['FirstName',
                 'LastName',
@@ -59,13 +59,11 @@
                 dataType: "json",
                 contentType: 'application/json'
             }).done(function (data) {
-                console.log(data);
-
                 if (data.Success) {
                     $('#confirmation-modal').modal();
                 }
 
-                loading = false;
+                $scope.loading = false;
             });
         }
     }

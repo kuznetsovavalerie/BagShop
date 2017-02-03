@@ -1,7 +1,9 @@
-﻿namespace BagShop.Common.Interfaces.Services
+﻿using BagShop.Common.Entities;
+
+namespace BagShop.Common.Interfaces.Services
 {
     public interface IMailService
     {
-        void Send();
+        void SendOrderInformation(Order order);
     }
 }

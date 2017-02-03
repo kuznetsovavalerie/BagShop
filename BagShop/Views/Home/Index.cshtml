@@ -1,29 +1,18 @@
 ﻿@model IEnumerable<BagShop.Models.ProductPreviewModel>
 @{
-    ViewBag.Title = "Сумки и рюкзаки";
+    ViewBag.Title = "Сумки и рюкзаки украинского производства";
     ViewBag.PageClass = "home";
 }
 
 <div class="banner">
+    <!-- googleoff: all -->
     <div id="lookbook-carousel" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        @*<ol class="carousel-indicators">
-                <li data-target="#lookbook-carousel" data-slide-to="0" class="active"></li>
-                <li data-target="#lookbook-carousel" data-slide-to="1"></li>
-                <li data-target="#lookbook-carousel" data-slide-to="2"></li>
-                <li data-target="#lookbook-carousel" data-slide-to="3"></li>
-                <li data-target="#lookbook-carousel" data-slide-to="4"></li>
-                <li data-target="#lookbook-carousel" data-slide-to="5"></li>
-                <li data-target="#lookbook-carousel" data-slide-to="6"></li>
-                <li data-target="#lookbook-carousel" data-slide-to="7"></li>
-            </ol>*@
-
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
             <div class="item active">
                 <img src="~/Content/img/carousel/1.JPG" alt="Hedera Shop lookbook">
                 <div class="banner-info white-color text-center" style="top: 30%; left: 25%;">
-                    <h4>Рюкзак - 550 грн.</h4>
+                    <h4>Рюкзак - 590 грн.</h4>
                     <a href="../Home/View?productId=3" class="btn btn-lg btn-buy">Купить</a>
                 </div>
             </div>
@@ -31,7 +20,7 @@
             <div class="item">
                 <img src="~/Content/img/carousel/2.JPG" alt="Hedera Shop lookbook">
                 <div class="banner-info white-color text-center" style="top: 60%; left: 60%;">
-                    <h4>Сумка - 350 грн.</h4>
+                    <h4>Сумка - 370 грн.</h4>
                     <a href="../Home/View?productId=2" class="btn btn-lg btn-buy">Купить</a>
                 </div>
             </div>
@@ -39,23 +28,15 @@
             <div class="item">
                 <img src="~/Content/img/carousel/3.JPG" alt="Hedera Shop lookbook">
                 <div class="banner-info white-color text-center" style="top: 65%; left: 45%;">
-                    <h4>Сумка - 350 грн.</h4>
+                    <h4>Сумка - 370 грн.</h4>
                     <a href="../Home/View?productId=2" class="btn btn-lg btn-buy">Купить</a>
                 </div>
             </div>
 
-            @*<div class="item">
-                    <img src="~/Content/img/carousel/4.JPG" alt="Hedera Shop lookbook">
-                    <div class="banner-info white-color text-center" style="top: 27%; left: 48%;">
-                        <h4>Сумка - 320 грн.</h4>
-                        <a href="#" class="btn btn-lg btn-buy">Купить</a>
-                    </div>
-                </div>*@
-
             <div class="item">
                 <img src="~/Content/img/carousel/5.JPG" alt="Hedera Shop lookbook">
                 <div class="banner-info white-color text-center" style="top: 16%; left: 16%;">
-                    <h4>Рюкзак - 550 грн.</h4>
+                    <h4>Рюкзак - 590 грн.</h4>
                     <a href="../Home/View?productId=3" class="btn btn-lg btn-buy">Купить</a>
                 </div>
             </div>
@@ -63,7 +44,7 @@
             <div class="item">
                 <img src="~/Content/img/carousel/6.JPG" alt="Hedera Shop lookbook">
                 <div class="banner-info white-color text-center" style="top: 40%; left: 72%;">
-                    <h4>Сумка - 320 грн.</h4>
+                    <h4>Сумка - 350 грн.</h4>
                     <a href="../Home/View?productId=1" class="btn btn-lg btn-buy">Купить</a>
                 </div>
             </div>
@@ -71,7 +52,7 @@
             <div class="item">
                 <img src="~/Content/img/carousel/7.JPG" alt="Hedera Shop lookbook">
                 <div class="banner-info white-color text-center" style="top: 47%; left: 15%;">
-                    <h4>Сумка - 320 грн.</h4>
+                    <h4>Сумка - 350 грн.</h4>
                     <a href="../Home/View?productId=1" class="btn btn-lg btn-buy">Купить</a>
                 </div>
             </div>
@@ -79,7 +60,7 @@
             <div class="item">
                 <img src="~/Content/img/carousel/8.JPG" alt="Hedera Shop lookbook">
                 <div class="banner-info white-color text-center" style="top: 50%; left: 65%;">
-                    <h4>Сумка - 350 грн.</h4>
+                    <h4>Сумка - 370 грн.</h4>
                     <a href="../Home/View?productId=2" class="btn btn-lg btn-buy">Купить</a>
                 </div>
             </div>
@@ -94,15 +75,16 @@
             <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
-    </div>
+    </div>    
+    <!-- googleon: all -->
 
     <div class="container">
         <div class="row">
             <div class="col-lg-1"></div>
             <div class="col-lg-10">
-                <h3 class="text-center brand-description">
-                    Hedera - сумки и рюкзаки для повседневной активной жизни
-                </h3>
+                <h2 class="text-center brand-description">
+                    Hedera - сумки и рюкзаки ручной работы из эко-кожи
+                </h2>
             </div>
             <div class="col-lg-1"></div>
         </div>
@@ -112,7 +94,7 @@
         <div class="row" id="catalog">
             @foreach (var product in Model)
             {
-                <div class="col-sm-4 text-center product-preview">
+                <div class="col-sm-4 text-center product-preview" itemscope itemtype="http://schema.org/Product">
                     @*<div class="colours">
                             @foreach (var colour in product.Colours)
                             {
@@ -120,10 +102,14 @@
                             }
                         </div>*@
                     <a href="../Home/View?productId=@product.ID">
-                        <img class="title-img" src="@product.TitleImage" />
+                        <img class="title-img" itemprop="image" src="@product.TitleImage" />
                     </a>
-                    <h3>@product.Price грн</h3>
-                    <a href="../Home/View?productId=@product.ID">@product.Title</a>
+                    <h3 itemprop="price">@product.Price грн</h3>
+                    <a itemprop="url" href="../Home/View?productId=@product.ID">
+                        <span itemprop="name">
+                            @product.Title
+                        </span>
+                    </a>
                 </div>
             }
         </div>
@@ -166,9 +152,9 @@
 
             <div class="row">
                 <div class="col-lg-12 text-center social">
-                    <a href="https://vk.com/hederashop" target="_blank"><img class="svg" src="~/Content/img/socials/vk.svg" width="22" /></a>
-                    <a href="https://www.facebook.com/hederashop/" target="_blank"><img class="svg" src="~/Content/img/socials/fb.svg" width="22" /></a>
-                    <a href="https://www.instagram.com/hedera_shop/" target="_blank"><img class="svg" src="~/Content/img/socials/inst.svg" width="22" /></a>
+                    <a itemprop="url" href="https://vk.com/hederashop" target="_blank"><img class="svg" src="~/Content/img/socials/vk.svg" width="22" /></a>
+                    <a itemprop="url" href="https://www.facebook.com/hederashop/" target="_blank"><img class="svg" src="~/Content/img/socials/fb.svg" width="22" /></a>
+                    <a itemprop="url" href="https://www.instagram.com/hedera_shop/" target="_blank"><img class="svg" src="~/Content/img/socials/inst.svg" width="22" /></a>
                 </div>
             </div>
         </div>

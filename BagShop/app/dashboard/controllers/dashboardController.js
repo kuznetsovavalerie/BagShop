@@ -5,6 +5,11 @@
         .module('app')
         .controller('dashboardController', dashboardController);
 
+    $stateProvider.state('products', {
+        templateUrl: 'products.html',
+        url: ''
+    })
+
     dashboardController.$inject = [
                             '$scope',
                             '$attrs',

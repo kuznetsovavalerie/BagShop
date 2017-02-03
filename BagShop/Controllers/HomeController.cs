@@ -1,16 +1,12 @@
 ﻿using BagShop.App_Code;
-using BagShop.BLL.Services;
 using BagShop.Common.Entities;
 using BagShop.Common.Interfaces;
 using BagShop.Common.Interfaces.Services;
-using BagShop.DAL;
 using BagShop.Identity;
 using BagShop.Models;
 using Microsoft.AspNet.Identity;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace BagShop.Controllers
@@ -21,16 +17,19 @@ namespace BagShop.Controllers
         private IProductService _productService;
         private IOrderService _orderService;
         private IUserService _userService;
+        private IMailService _mailService;
 
         public HomeController(IProductService productService, 
             UserManager<IdentityUser, Guid> userManager, 
             IOrderService orderService,
-            IUserService userService)
+            IUserService userService,
+            IMailService mailService)
         {
             this._productService = productService;
             this._userManager = userManager;
             this._orderService = orderService;
             this._userService = userService;
+            this._mailService = mailService;
         }
 
         public ActionResult Index()
@@ -40,6 +39,11 @@ namespace BagShop.Controllers
                 .Select(p => AutoMapperConfiguration.Mapper.Map<ProductPreviewModel>(p));
 
             return View(model);
+        }
+
+        public ActionResult Dashboard()
+        {
+            return View("~/Views/Dashboard/Dashboard.cshtml");
         }
 
         public ActionResult About()
@@ -115,13 +119,16 @@ namespace BagShop.Controllers
             {
                 Item = _productService.GetItem(model.Product.ID),
                 Quantity = model.Quantity,
-                SelectedColourID = model.SelectedColourId
+                SelectedColourID = model.SelectedColourId,
+                SelectedColour = _productService.GetColour(model.SelectedColourId)
             };
 
+            order.Customer = entityUser;
+            order.OrderDate = DateTime.Now;
             order.Items.Add(orderItem);
             _orderService.AddItem(order, user.Id);
 
-            MailService.SendOrderInformation(order);
+            _mailService.SendOrderInformation(order);
 
             return Json(new { Success = true });
         }

@@ -9,6 +9,8 @@ namespace BagShop.Common.Interfaces
 
         ShoppingItem GetItem(int id);
 
+        Colour GetColour(int id);
+
         void AddItem(ShoppingItem item);
     }
 }

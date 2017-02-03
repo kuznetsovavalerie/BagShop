@@ -23,6 +23,7 @@ namespace BagShop.BLL.Services
         public void CreatePost(BlogPost post)
         {
             unitOfWork.BlogPostRepository.Add(post);
+            unitOfWork.SaveChanges();
         }
     }
 }

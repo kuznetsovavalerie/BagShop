@@ -1,5 +1,13 @@
 ﻿
 /* BASE */
+* {
+    font-family: 'MyriadSetPro-Thin';
+}
+
+h1, h2, h3, h4, h5, a {
+    font-family: 'MyriadSetPro-Text';
+}
+
 body {
     background-color: #f5f5f5;
 }
@@ -20,7 +28,7 @@ body {
 .navbar {
     text-transform:uppercase;
     font-family: Arial;
-    background-color: #333;
+    background-color: #0d2117;
 }
 
 .navbar svg, img.svg {
@@ -48,6 +56,7 @@ body {
     height: 40px;
     margin: 5px;
     border: 2px solid #fff;
+    cursor: pointer;
 }
 
 .colour-dd button, .colour-dd a {
@@ -77,6 +86,23 @@ footer {
 .social svg path {
     fill: #333 !important;
 }
+
+.spinner {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    right: 0px;
+    z-index: 20;
+    background-color: rgba(245, 245, 245, 0.8);
+}
+
+.spinner .spin {
+    margin-top: 20%;
+    font-size: 30px;
+    font-weight: bold;
+    color: #9d9d9d;
+    animation: spin 2s linear infinite;
+}
 /* END BASE */
 
 /* HOME PAGE */
@@ -85,7 +111,7 @@ footer {
 }
 
 .banner {
-    width: 100vw;
+    width: 100%;
     z-index: 0;
     top: 0px;
     right: 0px;
@@ -98,6 +124,10 @@ footer {
 
 #lookbook-carousel .carousel-control {
     color: #ccc;
+}
+
+#lookbook-carousel img {
+    width: 100%;
 }
 
 .banner-info {
@@ -215,6 +245,13 @@ footer {
     margin-bottom: 10px;
 }
 
+/* ng- classes*/
+.ng-invalid.ng-touched {
+    box-shadow: 0px 0px 7px #ff673a;
+    border: 1px solid #d46342;
+}
+/**/
+
 @media (max-width: 525px) {
     .bucket-preview,
     .form-group label {
@@ -272,4 +309,11 @@ footer {
         width: 172px;
     }
 }
+
+/* ANIMATION */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+/* ANIMATION end */
 

@@ -18,6 +18,7 @@ namespace BagShop.BLL.Services
         public void Update(User user)
         {
             unitOfWork.UserRepository.Update(user);
+            unitOfWork.SaveChanges();
         }
     }
 }

@@ -9,6 +9,9 @@
 <script type="text/javascript" src="~/app/shopping/controllers/orderController.js"></script>
 
 <div ng-app="app" ng-controller="orderController" ng-init="init(@JsonConvert.SerializeObject(Model))">
+    <div class="spinner text-center" ng-show="loading">
+        <span class="glyphicon glyphicon-refresh spin"></span>
+    </div>
     <div class="row">
         <h2 class="text-center">Подтверждение заказа</h2>
     </div>
@@ -50,7 +53,7 @@
                     <div class="bucket-amount form-group col-xs-6 col-sm-6">
                         <label class="control-label" for="inputAmount">Количество:</label>
                         <div class="input-group">
-                            <input type="number" max="100" min="1" value="1" id="inputAmount" class="form-control ng-valid ng-not-empty ng-dirty ng-valid-number ng-touched" ng-model="Quantity">
+                            <input type="number" max="100" min="1" value="1" required id="inputAmount" class="form-control ng-valid ng-not-empty ng-dirty ng-valid-number ng-touched" name="Quantity" ng-model="Quantity">
                             <div class="input-group-addon">шт</div>
                         </div>
                     </div>
@@ -59,35 +62,35 @@
                     <label for="inputCell" class="col-xs-4 col-sm-2 control-label">Телефон:</label>
                     <div class="input-group col-xs-8">
                         <div class="input-group-addon">+380</div>
-                        <input type="tel" placeholder="&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;" id="inputCell" ng-model="PhoneNumber" pattern="^[0-9]{9,9}$" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-pattern" maxlength="9" />
+                        <input type="tel" placeholder="&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;" id="inputCell" required name="PhoneNumber" ng-model="PhoneNumber" pattern="^[0-9]{9,9}$" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-pattern" maxlength="9" />
                     </div>
                 </div>
                 <div class="row form-group bucket-form-FirstName">
                     <label for="inputFirstName" class="col-xs-4 col-sm-2 control-label">Имя:</label>
                     <div class="col-xs-8 col-sm-10">
-                        <input type="text" id="inputFirstName" ng-model="FirstName" pattern="^[-a-zA-Z\u0400-\u04ff\s]+$" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-pattern" maxlength="50" />
+                        <input type="text" id="inputFirstName" name="FirstName" ng-model="FirstName" pattern="^[-a-zA-Z\u0400-\u04ff\s]+$" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-pattern" required maxlength="50" />
                     </div>
                 </div>
                 <div class="row form-group bucket-form-LastName">
                     <label for="inputLastName" class="col-xs-4 col-sm-2 control-label">Фамилия:</label>
                     <div class="col-xs-8 col-sm-10">
-                        <input type="text" id="inputLastName" ng-model="LastName" pattern="^[-a-zA-Z\u0400-\u04ff\s]+$" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-pattern" maxlength="50" />
+                        <input type="text" id="inputLastName" name="LastName" ng-model="LastName" pattern="^[-a-zA-Z\u0400-\u04ff\s]+$" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-pattern" required maxlength="50" />
                     </div>
                 </div>
                 <div class="row form-group bucket-form-Address">
                     <label for="inputAddress" class="col-xs-4 col-sm-2 control-label">Адрес:</label>
                     <div class="col-xs-8 col-sm-10">
-                        <input type="text" id="inputAddress" ng-model="Address" min="5" max="256" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-pattern" />
+                        <input type="text" id="inputAddress" name="Address" ng-model="Address" min="5" max="256" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-pattern" required />
                     </div>
                 </div>
                 <input type="submit" class="btn btn-default center-block" value="Подтвердить" ng-disabled="orderSubmission.$invalid">
-                <div class="row" ng-show="form.$submitted">
+                <div class="row">
                     <ul>
-                        <li class="text-danger" ng-show="orderSubmission.Quantity.$error.required">Введите количество.</li>
-                        <li class="text-danger" ng-show="orderSubmission.PhoneNumber.$error">Введите правильный номер телефона.</li>
-                        <li class="text-danger" ng-show="orderSubmission.FirstName.$error">Введите корректное имя.</li>
-                        <li class="text-danger" ng-show="orderSubmission.LastName.$error">Введите корректную фамилию.</li>
-                        <li class="text-danger" ng-show="orderSubmission.Address.$error">Введите адрес.</li>
+                        <li class="text-danger" ng-show="orderSubmission.Quantity.$invalid && orderSubmission.Quantity.$touched">Введите количество.</li>
+                        <li class="text-danger" ng-show="orderSubmission.PhoneNumber.$invalid && orderSubmission.PhoneNumber.$touched">Введите правильный номер телефона.</li>
+                        <li class="text-danger" ng-show="orderSubmission.FirstName.$invalid && orderSubmission.FirstName.$touched">Введите корректное имя.</li>
+                        <li class="text-danger" ng-show="orderSubmission.LastName.$invalid && orderSubmission.LastName.$touched">Введите корректную фамилию.</li>
+                        <li class="text-danger" ng-show="orderSubmission.Address.$invalid && orderSubmission.Address.$touched">Введите адрес.</li>
                     </ul>
                 </div>
             </form>

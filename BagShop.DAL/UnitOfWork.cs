@@ -10,9 +10,10 @@ namespace BagShop.DAL
     {
         #region Fields
         private BagShopContext _context;
-        private Repository<Order> _orderRepository;
-        private Repository<BlogPost> _blogPostRepository;
+        private IRepository<Order> _orderRepository;
+        private IRepository<BlogPost> _blogPostRepository;
         private IRepository<ShoppingItem> _productRepository;
+        private IRepository<Colour> _colourRepository;
         private IExternalLoginRepository _externalLoginRepository;
         private IRoleRepository _roleRepository;
         private IUserRepository _userRepository;
@@ -55,6 +56,17 @@ namespace BagShop.DAL
                     _productRepository = new ProductRepository(_context);
 
                 return _productRepository;
+            }
+        }
+
+        public IRepository<Colour> ColourRepository
+        {
+            get
+            {
+                if (_colourRepository == null)
+                    _colourRepository = new Repository<Colour>(_context);
+
+                return _colourRepository;
             }
         }
 

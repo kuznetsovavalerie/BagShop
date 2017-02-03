@@ -41,6 +41,7 @@ namespace BagShop.BLL.Services
 
             item.States.Add(state);
             unitOfWork.OrderRepository.Add(item);
+            unitOfWork.SaveChanges();
         }
 
         public void AddState(int orderId, OrderState state)
@@ -50,6 +51,7 @@ namespace BagShop.BLL.Services
             state.ChangeDate = DateTime.Now;
             order.States.Add(state);
             unitOfWork.OrderRepository.Update(order);
+            unitOfWork.SaveChanges();
         }
     }
 }

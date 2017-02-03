@@ -1,10 +1,13 @@
 ﻿<!DOCTYPE html>
-<html>
+<html itemscope itemtype="http://schema.org/Brand">
 <head>
     <link rel="shortcut icon" href="~/Content/img/favicon.ico">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Украинский производитель сумок и рюкзаков" />
+    <meta itemprop="description" name="description" content="Украинский производитель сумок и рюкзаков" />
+    <meta itemprop="description" name="description" content="Hand-made сумки и рюкзаки в Украине" />
+    <meta itemprop="description" name="description" content="Сумки и рюкзаки ручной работы в Украине" />
+    <meta itemprop="description" name="description" content="Сумки и рюкзаки из эко-кожи" />
     <title>Hedera Shop @(string.IsNullOrEmpty(ViewBag.Title) ? "" : " - " + ViewBag.Title)</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -17,8 +20,11 @@
     <script type="text/javascript" src="~/Scripts/lib/angular-ui/ui-bootstrap.min.js"></script>
     <script type="text/javascript" src="~/Scripts/lib/angular-ui/ui-bootstrap-tpls.min.js"></script>
     <script type="text/javascript" src="../app/app.js"></script>
+    <script type="text/javascript" src="http://smtpjs.com/smtp.js"></script>
     <script type="text/javascript" src="../app/baseController.js"></script>
-
+    <link href="http://nomail.com.ua/api/font-face/14373.css" rel="stylesheet" />
+    <link href="http://nomail.com.ua/api/font-face/14371.css" rel="stylesheet" />
+    <link href="http://nomail.com.ua/api/font-face/14368.css" rel="stylesheet" />
 </head>
 <body class="@ViewBag.PageClass">
     <div class="navbar navbar-fixed-top white-color">
@@ -53,7 +59,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-6">
-                    <h4 class="text-muted text-uppercase">Hedera Shop, 2016</h4>
+                    <h4 class="text-muted text-uppercase"><span itemprop="name">Hedera</span> Shop, 2016</h4>
+                    <h5 itemprop="description" name="description" class="text-muted">
+                        Сумки украинского производства из эко-кожи
+                    </h5>
                     @*<a href="../">Главная</a><br />
                         <a href="../Home/DeliveryDetails">Доставка и оплата</a><br />*@
                     @*<a href="../Home/ContactUs">Свяжитесь с нами</a><br />*@

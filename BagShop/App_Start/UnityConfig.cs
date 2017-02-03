@@ -5,6 +5,7 @@ using BagShop.DAL;
 using BagShop.Identity;
 using Microsoft.AspNet.Identity;
 using Microsoft.Practices.Unity;
+using Microsoft.Practices.Unity.Configuration;
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -26,6 +27,8 @@ namespace BagShop
             container.RegisterType<IProductService, ProductService>();
             container.RegisterType<IOrderService, OrderService>();
             container.RegisterType<IUserService, UserService>();
+            //container.RegisterType<IMailService, MailService>();
+            container.LoadConfiguration();
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
             GlobalConfiguration.Configuration.DependencyResolver = new Unity.WebApi.UnityDependencyResolver(container);
